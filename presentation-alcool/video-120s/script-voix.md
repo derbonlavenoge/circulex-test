@@ -7,6 +7,7 @@ Les fichiers audio sont débarrassés des silences de début et de fin, puis acc
 ## Contraintes
 - Narrateur : voix **Enrick**. Jamais de voix à accent africain.
 - Français de Suisse : **septante** (70), **huitante** (80), **nonante** (90) et leurs composés (septante-cinq…), jamais « soixante-dix », « quatre-vingts », « quatre-vingt-dix ».
+
 Minutages réels : voir `timeline.js` (début et durée de chaque réplique après traitement).
 
 | #  | Scène | Début (s) | Voix | Texte |
