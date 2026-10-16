@@ -39,3 +39,5 @@ python3 audio.py vo frames/sfx.json mix.wav
 ffmpeg -framerate 30 -i frames/f%04d.png -i mix.wav -c:v libx264 -pix_fmt yuv420p -crf 18 \
        -c:a aac -b:a 192k -shortest alcool-120s.mp4
 ```
+
+Le dossier `voix/` contient les fichiers MP3 bruts sortis d'ElevenLabs (avant découpe des silences et accélération).
