@@ -30,9 +30,9 @@ const LINES=[
   sub:"Pourquoi le même verre ne fait pas le même effet à tout le monde ?"},
  {sp:"L'alcool se répartit dans toute l'eau de ton corps.|Le taux, c'est une concentration :|même dose dans moins d'eau, taux plus haut.",
   sub:"L'alcool se répartit dans toute l'eau de ton corps.|Le taux, c'est une concentration :|même dose dans moins d'eau, taux plus haut."},
- {sp:"Un muscle, c'est environ soixante-quinze pour cent d'eau.|La graisse, seulement dix à vingt pour cent.|Et l'alcool va dans l'eau, pas dans la graisse.",
+ {sp:"Un muscle, c'est environ septante-cinq pour cent d'eau.|La graisse, seulement dix à vingt pour cent.|Et l'alcool va dans l'eau, pas dans la graisse.",
   sub:"Un muscle, c'est environ 75 % d'eau.|La graisse, seulement 10 à 20 %.|Et l'alcool va dans l'eau, pas dans la graisse."},
- {sp:"Deux personnes de soixante-dix kilos.|En moyenne, l'homme a plus de muscles : environ soixante pour cent d'eau.|La femme, plus de graisse : environ cinquante.|Même verre, moins d'eau : taux plus haut.",
+ {sp:"Deux personnes de septante kilos.|En moyenne, l'homme a plus de muscles : environ soixante pour cent d'eau.|La femme, plus de graisse : environ cinquante.|Même verre, moins d'eau : taux plus haut.",
   sub:"Deux personnes de 70 kilos.|En moyenne, l'homme a plus de muscles : environ 60 % d'eau.|La femme, plus de graisse : environ 50 %.|Même verre, moins d'eau : taux plus haut."},
  {sp:"Attends… donc les filles tiennent moins l'alcool ?",
   sub:"Attends… donc les filles tiennent moins l'alcool ?"},
@@ -42,7 +42,7 @@ const LINES=[
   sub:"Le taux monte aussi plus haut si tu pèses moins,|as moins de muscles, bois à jeun ou bois vite.|À 16 ans, on pèse souvent moins qu'un adulte :|même verre, taux plus haut."},
  {sp:"De l'estomac et de l'intestin, l'alcool passe dans le sang,|qui l'emmène partout, jusqu'au cerveau.|À seize ans, ton cerveau se développe encore,|jusqu'à vingt-cinq ans environ : il est plus sensible.",
   sub:"De l'estomac et de l'intestin, l'alcool passe dans le sang,|qui l'emmène partout, jusqu'au cerveau.|À 16 ans, ton cerveau se développe encore,|jusqu'à 25 ans environ : il est plus sensible."},
- {sp:"Ensuite, le foie en élimine plus de quatre-vingt-dix pour cent.|Le reste sort par le souffle, l'urine et la sueur.",
+ {sp:"Ensuite, le foie en élimine plus de nonante pour cent.|Le reste sort par le souffle, l'urine et la sueur.",
   sub:"Ensuite, le foie en élimine plus de 90 %.|Le reste sort par le souffle, l'urine et la sueur."},
  {sp:"Dans le foie, deux enzymes, des petits outils, font le travail.|L'A.D.H. change l'alcool en acétaldéhyde, toxique.|L'A.L.D.H. le change en acétate,|qui finit en eau et en gaz carbonique.",
   sub:"Dans le foie, deux enzymes – des petits outils – font le travail.|L'ADH change l'alcool en acétaldéhyde, toxique.|L'ALDH le change en acétate,|qui finit en eau et en gaz carbonique (CO₂)."},
@@ -182,7 +182,7 @@ function buildCues(){
  K.s2Drop=at(2,"même dose"); for(let j=0;j<8;j+=2)sfx('plop',K.s2Drop+.45+j*.07,.7);
  K.s2Badge=sfx('pop',at(2,"taux plus haut"));
  // S3
- K.s3Mus=at(3,"Un muscle"); sfx('bubbles',K.s3Mus+.3); K.s3_75=sfx('pop',at(3,"soixante-quinze"),.7);
+ K.s3Mus=at(3,"Un muscle"); sfx('bubbles',K.s3Mus+.3); K.s3_75=sfx('pop',at(3,"septante-cinq"),.7);
  K.s3Fat=at(3,"La graisse"); sfx('bubbles',K.s3Fat+.3,.6); K.s3_20=sfx('pop',at(3,"dix à vingt"),.7);
  K.s3Drop=at(3,"Et l'alcool"); for(let j=0;j<7;j+=2)sfx('plop',K.s3Drop+.5+j*.08,.7);
  K.s3Ban=sfx('whoosh',at(3,"va dans l'eau"),.6);
@@ -204,7 +204,7 @@ function buildCues(){
  K.s6Blood=sfx('whoosh',at(8,"passe dans le sang"),.5); K.s6Brain=sfx('pop',at(8,"jusqu'au cerveau"),.7);
  K.s6Age=sfx('whoosh',at(8,"À seize ans"),.5);
  K.s6Liver=at(9,"le foie"); for(let j=0;j<5;j++)sfx('gloup',K.s6Liver+.4+j*.32,.7);
- K.s6_90=sfx('pop',at(9,"plus de quatre"),.8); K.s6Rest=at(9,"Le reste");
+ K.s6_90=sfx('pop',at(9,"plus de nonante"),.8); K.s6Rest=at(9,"Le reste");
  K.s6r=[at(9,"le souffle"),at(9,"l'urine"),at(9,"la sueur")]; K.s6r.forEach(x=>sfx('pop',x,.5));
  // S7
  K.s7=SC[7].a; sfx('whoosh',K.s7+.1,.5); K.s7Enz=sfx('pop',at(10,"deux enzymes"),.6);
