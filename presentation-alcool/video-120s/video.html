@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>L'alcool dans le corps – 120 s</title>
+<style>
+@font-face{font-family:Rubik;font-weight:500;src:url(fonts/Rubik-500.ttf)}
+@font-face{font-family:Rubik;font-weight:800;src:url(fonts/Rubik-800.ttf)}
+@font-face{font-family:Rubik;font-weight:900;src:url(fonts/Rubik-900.ttf)}
+html,body{margin:0;background:#22252A;overflow:hidden}
+svg{display:block}
+text{font-family:Rubik,sans-serif}
+</style>
+</head>
+<body>
+<svg id="v" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"></svg>
+<script src="timeline.js"></script>
+<script>
+// ---------------------------------------------------------------------------
+// Vidéo explicative 120 s : « L'alcool dans le corps » (public : ado de 16 ans)
+// render(t) est déterministe : t en secondes -> image complète.
+// ---------------------------------------------------------------------------
+const C={bg:'#22252A',bg2:'#1A1C20',txt:'#F3F0E8',g1:'#A9ACB2',g2:'#C9CBD0',body:'#3A3F47',
+  water:'#2FA8FF',alc:'#FF6B5B',fat:'#FFB627',liver:'#A51F4B',liverT:'#E0577E'};
+const DUR=120;
+
+// Texte prononcé (sp, sert au calage) et sous-titre affiché (sub). « | » = découpe des sous-titres.
+const LINES=[
+ {sp:"Pourquoi le même verre ne fait pas le même effet à tout le monde ?",
+  sub:"Pourquoi le même verre ne fait pas le même effet à tout le monde ?"},
+ {sp:"L'alcool se répartit dans toute l'eau de ton corps.|Le taux, c'est une concentration :|même dose dans moins d'eau, taux plus haut.",
+  sub:"L'alcool se répartit dans toute l'eau de ton corps.|Le taux, c'est une concentration :|même dose dans moins d'eau, taux plus haut."},
+ {sp:"Un muscle, c'est environ septante-cinq pour cent d'eau.|La graisse, seulement dix à vingt pour cent.|Et l'alcool va dans l'eau, pas dans la graisse.",
+  sub:"Un muscle, c'est environ 75 % d'eau.|La graisse, seulement 10 à 20 %.|Et l'alcool va dans l'eau, pas dans la graisse."},
+ {sp:"Deux personnes de septante kilos.|En moyenne, l'homme a plus de muscles : environ soixante pour cent d'eau.|La femme, plus de graisse : environ cinquante.|Même verre, moins d'eau : taux plus haut.",
+  sub:"Deux personnes de 70 kilos.|En moyenne, l'homme a plus de muscles : environ 60 % d'eau.|La femme, plus de graisse : environ 50 %.|Même verre, moins d'eau : taux plus haut."},
+ {sp:"Attends… donc les filles tiennent moins l'alcool ?",
+  sub:"Attends… donc les filles tiennent moins l'alcool ?"},
+ {sp:"Non. Ça n'a rien à voir avec « tenir l'alcool ».|C'est une moyenne, pas une règle : juste une question d'eau dans le corps.",
+  sub:"Non. Ça n'a rien à voir avec « tenir l'alcool ».|C'est une moyenne, pas une règle : juste une question d'eau dans le corps."},
+ {sp:"Le taux monte aussi plus haut si tu pèses moins,|as moins de muscles, bois à jeun ou bois vite.|À seize ans, on pèse souvent moins qu'un adulte :|même verre, taux plus haut.",
+  sub:"Le taux monte aussi plus haut si tu pèses moins,|as moins de muscles, bois à jeun ou bois vite.|À 16 ans, on pèse souvent moins qu'un adulte :|même verre, taux plus haut."},
+ {sp:"De l'estomac et de l'intestin, l'alcool passe dans le sang,|qui l'emmène partout, jusqu'au cerveau.|À seize ans, ton cerveau se développe encore,|jusqu'à vingt-cinq ans environ : il est plus sensible.",
+  sub:"De l'estomac et de l'intestin, l'alcool passe dans le sang,|qui l'emmène partout, jusqu'au cerveau.|À 16 ans, ton cerveau se développe encore,|jusqu'à 25 ans environ : il est plus sensible."},
+ {sp:"Ensuite, le foie en élimine plus de nonante pour cent.|Le reste sort par le souffle, l'urine et la sueur.",
+  sub:"Ensuite, le foie en élimine plus de 90 %.|Le reste sort par le souffle, l'urine et la sueur."},
+ {sp:"Dans le foie, deux enzymes, des petits outils, font le travail.|L'A.D.H. change l'alcool en acétaldéhyde, toxique.|L'A.L.D.H. le change en acétate,|qui finit en eau et en gaz carbonique.",
+  sub:"Dans le foie, deux enzymes – des petits outils – font le travail.|L'ADH change l'alcool en acétaldéhyde, toxique.|L'ALDH le change en acétate,|qui finit en eau et en gaz carbonique (CO₂)."},
+ {sp:"Le foie va à vitesse fixe :|moins zéro virgule un à zéro virgule quinze pour mille par heure.|De zéro virgule cinq pour mille à zéro : environ trois à cinq heures.",
+  sub:"Le foie va à vitesse fixe :|−0,1 à 0,15 ‰ par heure.|De 0,5 ‰ à zéro : environ 3 à 5 heures."},
+ {sp:"Et un café, ça n'aide pas ?", sub:"Et un café, ça n'aide pas ?"},
+ {sp:"Non. Ni café, ni douche froide, ni eau, ni air frais, ni sport.|Rien n'accélère le foie. Seul le temps.",
+  sub:"Non. Ni café, ni douche froide, ni eau, ni air frais, ni sport.|Rien n'accélère le foie. Seul le temps."},
+ {sp:"Et le taux monte encore après le dernier verre :|le pic arrive trente à soixante minutes plus tard.|Te sentir bien juste après ne veut pas dire qu'il a fini de monter.",
+  sub:"Et le taux monte encore après le dernier verre :|le pic arrive 30 à 60 minutes plus tard.|Te sentir bien juste après ne veut pas dire qu'il a fini de monter."},
+ {sp:"À retenir : c'est une concentration.|Moins d'eau, taux plus haut. Le pic vient après.|Le foie va à vitesse fixe.|Seul le temps fait baisser le taux.",
+  sub:"À retenir : c'est une concentration.|Moins d'eau, taux plus haut. Le pic vient après.|Le foie va à vitesse fixe.|Seul le temps fait baisser le taux."},
+ {sp:"Maintenant, tu sais comment ça marche.", sub:"Maintenant, tu sais comment ça marche."},
+];
+LINES.forEach((L,i)=>Object.assign(L,window.TL[i]));
+const ERR=[];
+function L(i){return LINES[i-1];}
+function at(i,phrase){ // instant (s) où la phrase est dite dans la réplique i (proportionnel aux caractères)
+  const l=L(i), s=l.sp.replace(/\|/g,''), k=s.indexOf(phrase);
+  if(k<0){ERR.push(`cue introuvable: ${i} « ${phrase} »`);return l.start;}
+  return l.start+l.dur*k/s.length;
+}
+// fenêtres des scènes
+const SC={};
+for(let k=1;k<=12;k++){const first=LINES.find(l=>l.scene===k);SC[k]={a:k===1?0:first.start-0.35};}
+for(let k=1;k<=12;k++){SC[k].b=k<12?SC[k+1].a:DUR;}
+
+// ---------- outils ----------
+const cl=x=>Math.max(0,Math.min(1,x));
+const P=(t,a,d)=>cl((t-a)/d);
+const oc=x=>1-Math.pow(1-x,3);
+const io=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const bo=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2);};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const f=n=>Math.round(n*100)/100;
+function rnd(seed){let s=seed*9301+49297;return ()=>{s=(s*9301+49297)%233280;return s/233280;};}
+let UID=0; const uid=p=>p+(UID++);
+
+function G(inner,o={}){const {x=0,y=0,s=1,o:op=1,r=0}=o; if(op<=0.003||s<=0.001)return '';
+  return `<g transform="translate(${f(x)} ${f(y)})${r?` rotate(${f(r)})`:''}${s!==1?` scale(${f(s)})`:''}"${op<1?` opacity="${f(op)}"`:''}>${inner}</g>`;}
+function T(str,x,y,o={}){const {size=60,w=800,fill=C.txt,anchor='middle',ls=0,extra=''}=o;
+  return `<text x="${f(x)}" y="${f(y)}" font-size="${size}" font-weight="${w}" fill="${fill}" text-anchor="${anchor}"${ls?` letter-spacing="${ls}"`:''} ${extra}>${str}</text>`;}
+// apparitions
+const rise=(inner,t,a,x,y,s=1,d=.55)=>G(inner,{x,y:y+46*(1-oc(P(t,a,d))),o:oc(P(t,a,d*.8)),s});
+const pop=(inner,t,a,x,y,s=1)=>G(inner,{x,y,s:s*bo(P(t,a,.45)),o:P(t,a,.12)});
+const fade=(inner,t,a,d=.4)=>G(inner,{o:P(t,a,d)});
+
+// ---------- illustrations ----------
+function glass(level=.7,t=0){ // bas-centre en (0,0)
+  const id=uid('gl'), top=-150, ly=top*level;
+  const wave=[];for(let x=-62;x<=62;x+=8)wave.push(`${x},${f(ly+3*Math.sin(x/12+t*4))}`);
+  return `<defs><clipPath id="${id}"><polygon points="-60,-150 60,-150 42,0 -42,0"/></clipPath></defs>
+  <polygon points="-60,-150 60,-150 42,0 -42,0" fill="rgba(255,255,255,.06)"/>
+  <g clip-path="url(#${id})">${level>0?`<polygon points="-70,10 70,10 ${wave.reverse().join(' ')}" fill="${C.alc}"/>`:''}</g>
+  <polygon points="-60,-150 60,-150 42,0 -42,0" fill="none" stroke="${C.g2}" stroke-width="7" stroke-linejoin="round"/>
+  <line x1="-34" y1="-128" x2="-24" y2="-30" stroke="rgba(255,255,255,.25)" stroke-width="7" stroke-linecap="round"/>`;
+}
+const dot=(x,y,r=11,c=C.alc)=>`<circle cx="${f(x)}" cy="${f(y)}" r="${r}" fill="${c}"/>`;
+
+const BODY={
+ man:{h:588,shapes:`<circle cx="0" cy="-530" r="58"/><rect x="-95" y="-462" width="190" height="262" rx="46"/>
+  <rect x="-140" y="-450" width="38" height="235" rx="19"/><rect x="102" y="-450" width="38" height="235" rx="19"/>
+  <rect x="-82" y="-215" width="72" height="215" rx="30"/><rect x="10" y="-215" width="72" height="215" rx="30"/>`},
+ woman:{h:581,shapes:`<circle cx="0" cy="-525" r="56"/>
+  <path d="M-72,-462 H72 Q88,-462 86,-440 L74,-330 Q104,-262 106,-215 Q106,-198 90,-198 H-90 Q-106,-198 -106,-215 Q-104,-262 -74,-330 L-86,-440 Q-88,-462 -72,-462 Z"/>
+  <rect x="-122" y="-450" width="34" height="226" rx="17"/><rect x="88" y="-450" width="34" height="226" rx="17"/>
+  <rect x="-90" y="-215" width="74" height="215" rx="30"/><rect x="16" y="-215" width="74" height="215" rx="30"/>`},
+};
+// silhouette : kind, niveau d'eau 0..1, extra = contenu dessiné dans le corps (clippé)
+function person(kind,level,t,{extra='',fatO=0,col=C.body}={}){
+  const B=BODY[kind], id=uid('cp'), top=-B.h*level;
+  const wave=[];for(let x=-170;x<=170;x+=10)wave.push(`${x},${f(top+7*Math.sin(x/28+t*3.2))}`);
+  const fat= fatO>0 ? (kind==='woman'
+     ? `<g opacity="${f(fatO)}" fill="${C.fat}"><ellipse cx="-92" cy="-245" rx="46" ry="62"/><ellipse cx="92" cy="-245" rx="46" ry="62"/><ellipse cx="0" cy="-300" rx="70" ry="26"/><ellipse cx="-58" cy="-150" rx="34" ry="44"/><ellipse cx="58" cy="-150" rx="34" ry="44"/></g>`
+     : `<g opacity="${f(fatO)}" fill="${C.fat}"><ellipse cx="0" cy="-292" rx="56" ry="20"/><ellipse cx="-85" cy="-230" rx="22" ry="30"/><ellipse cx="85" cy="-230" rx="22" ry="30"/></g>`):'';
+  return `<defs><clipPath id="${id}">${B.shapes}</clipPath></defs>
+   <g fill="${col}">${B.shapes}</g>
+   <g clip-path="url(#${id})">${level>0?`<polygon points="-180,10 180,10 ${wave.reverse().join(' ')}" fill="${C.water}"/>`:''}${fat}${extra}</g>`;
+}
+function liver(t=0,gulp=0){ // centré
+  const sx=1+.08*gulp, sy=1-.06*gulp;
+  return `<g transform="scale(${f(sx)} ${f(sy)})"><path d="M-130,-10 C-136,-72 -60,-98 12,-88 C82,-80 136,-62 128,-20 C121,20 62,30 12,56 C-40,82 -122,62 -130,-10 Z" fill="${C.liver}"/>
+   <ellipse cx="-40" cy="-50" rx="48" ry="15" transform="rotate(-12 -40 -50)" fill="rgba(255,255,255,.2)"/></g>`;
+}
+function hourglass(t,run=0){ // centré, hauteur ~240
+  const k=cl(run), topH=60*(1-k), botH=60*k;
+  return `<rect x="-90" y="-128" width="180" height="20" rx="10" fill="${C.g2}"/><rect x="-90" y="108" width="180" height="20" rx="10" fill="${C.g2}"/>
+  <path d="M-70,-108 H70 C70,-40 12,-14 12,0 C12,14 70,40 70,108 H-70 C-70,40 -12,14 -12,0 C-12,-14 -70,-40 -70,-108 Z" fill="rgba(255,255,255,.07)" stroke="${C.g2}" stroke-width="6"/>
+  <path d="M${f(-60*(topH/60))},${f(-8-topH)} H${f(60*(topH/60))} L0,-6 Z" fill="${C.txt}"/>
+  ${k>0&&k<1?`<line x1="0" y1="-6" x2="0" y2="104" stroke="${C.txt}" stroke-width="4"/>`:''}
+  <path d="M-64,106 Q0,${f(106-botH*1.6)} 64,106 Z" fill="${C.txt}"/>`;
+}
+function bubble(str,x,y,t,a,size=54){ // bulle question d'ado
+  const w=str.length*size*.53+90, h=size*1.9;
+  const s=bo(P(t,a,.45)), o=P(t,a,.12);
+  return G(`<rect x="${f(-w/2)}" y="${f(-h/2)}" width="${f(w)}" height="${f(h)}" rx="${f(h/2)}" fill="${C.txt}"/>
+   <path d="M-40,${f(h/2-4)} L-70,${f(h/2+40)} L0,${f(h/2-4)} Z" fill="${C.txt}"/>
+   ${T(str,0,size*.36,{size,w:800,fill:C.bg})}`,{x,y,s,o});
+}
+function gauge(level,label='taux',hl=0){ // bas-centre (0,0), hauteur 230
+  const h=230*cl(level);
+  return `<rect x="-26" y="-230" width="52" height="230" rx="26" fill="${C.bg2}" stroke="${C.body}" stroke-width="4"/>
+  ${h>2?`<rect x="-20" y="${f(-h+(-6)*0)}" width="40" height="${f(Math.max(h-6,1))}" rx="20" fill="${C.alc}" transform="translate(0 -3)"/>`:''}
+  ${T(label,0,48,{size:32,w:800,fill:C.g2})}
+  ${hl>0?G(`<path d="M0,-40 L26,0 H10 V36 H-10 V0 H-26 Z" fill="${C.alc}"/>`,{x:62,y:-200,o:hl,s:.9+.1*hl}):''}`;
+}
+const arrowUp=(c=C.alc)=>`<path d="M0,-34 L30,4 H11 V34 H-11 V4 H-30 Z" fill="${c}"/>`;
+const arrowR=(w=150,c=C.g2)=>`<line x1="0" y1="0" x2="${w-22}" y2="0" stroke="${c}" stroke-width="10" stroke-linecap="round"/><path d="M${w},0 L${w-30},-20 L${w-30},20 Z" fill="${c}"/>`;
+function strike(k){ // barre diagonale
+  return k>0?`<line x1="-80" y1="80" x2="${f(-80+160*k)}" y2="${f(80-160*k)}" stroke="${C.alc}" stroke-width="16" stroke-linecap="round"/>`:'';
+}
+// petits pictos (centrés, ~140 px)
+const ICON={
+ scale:`<rect x="-70" y="-10" width="140" height="70" rx="18" fill="${C.g2}"/><circle cx="0" cy="25" r="22" fill="${C.bg}"/><line x1="0" y1="25" x2="12" y2="10" stroke="${C.alc}" stroke-width="5" stroke-linecap="round"/><rect x="-50" y="-34" width="100" height="16" rx="8" fill="${C.g1}"/>`,
+ dumbbell:`<rect x="-60" y="-8" width="120" height="16" rx="8" fill="${C.g1}"/><rect x="-78" y="-40" width="26" height="80" rx="10" fill="${C.g2}"/><rect x="52" y="-40" width="26" height="80" rx="10" fill="${C.g2}"/><rect x="-98" y="-26" width="18" height="52" rx="8" fill="${C.g2}"/><rect x="80" y="-26" width="18" height="52" rx="8" fill="${C.g2}"/>`,
+ plate:`<circle cx="0" cy="0" r="62" fill="${C.g2}"/><circle cx="0" cy="0" r="40" fill="none" stroke="${C.g1}" stroke-width="5"/><rect x="-92" y="-50" width="10" height="100" rx="5" fill="${C.g1}"/><rect x="82" y="-50" width="10" height="100" rx="5" fill="${C.g1}"/>`,
+ watch:`<circle cx="0" cy="8" r="58" fill="${C.g2}"/><circle cx="0" cy="8" r="44" fill="${C.bg}"/><rect x="-14" y="-70" width="28" height="18" rx="6" fill="${C.g2}"/><line x1="0" y1="8" x2="0" y2="-28" stroke="${C.alc}" stroke-width="7" stroke-linecap="round"/><line x1="0" y1="8" x2="22" y2="20" stroke="${C.txt}" stroke-width="6" stroke-linecap="round"/><path d="M-100,-10 H-72 M-110,12 H-72 M-100,34 H-74" stroke="${C.g1}" stroke-width="7" stroke-linecap="round"/>`,
+ coffee:`<path d="M-55,-30 H45 V20 C45,50 25,62 -5,62 C-35,62 -55,50 -55,20 Z" fill="${C.g2}"/><path d="M45,-14 C80,-14 80,30 45,30" fill="none" stroke="${C.g2}" stroke-width="10"/><path d="M-25,-48 C-35,-62 -15,-70 -25,-86 M5,-48 C-5,-62 15,-70 5,-86" fill="none" stroke="${C.g1}" stroke-width="6" stroke-linecap="round"/><rect x="-70" y="62" width="130" height="10" rx="5" fill="${C.g1}"/>`,
+ shower:`<path d="M-60,-70 H10 Q30,-70 30,-50 V-40" fill="none" stroke="${C.g2}" stroke-width="10" stroke-linecap="round"/><path d="M-10,-40 H70 L56,-14 H4 Z" fill="${C.g2}"/>${[[10,10],[30,30],[50,10],[20,55],[45,60],[0,40]].map(([x,y])=>`<line x1="${x}" y1="${y}" x2="${x-5}" y2="${y+16}" stroke="${C.water}" stroke-width="7" stroke-linecap="round"/>`).join('')}`,
+ water:`<path d="M0,-70 C30,-30 52,0 52,24 C52,54 28,72 0,72 C-28,72 -52,54 -52,24 C-52,0 -30,-30 0,-70 Z" fill="${C.water}"/><ellipse cx="-18" cy="24" rx="9" ry="18" fill="rgba(255,255,255,.35)"/>`,
+ wind:`<path d="M-80,-30 H30 C60,-30 60,-70 30,-70 M-80,5 H60 C95,5 95,50 60,50 M-80,40 H0" fill="none" stroke="${C.g2}" stroke-width="12" stroke-linecap="round"/>`,
+ run:`<circle cx="18" cy="-62" r="18" fill="${C.g2}"/><path d="M8,-38 L-12,10 L18,40 L8,78 M-12,10 L-40,58 M2,-30 L40,-6 M2,-30 L-34,-14" fill="none" stroke="${C.g2}" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>`,
+ breath:`<circle cx="-40" cy="0" r="38" fill="${C.g2}"/><path d="M10,-20 H70 M10,0 H90 M10,20 H62" stroke="${C.g1}" stroke-width="8" stroke-linecap="round"/>`,
+ drop2:`<path d="M0,-46 C20,-20 34,0 34,16 C34,36 18,48 0,48 C-18,48 -34,36 -34,16 C-34,0 -20,-20 0,-46 Z" fill="${C.g2}"/>`,
+ sweat:`<circle cx="0" cy="0" r="42" fill="${C.g2}"/><path d="M50,-30 C58,-18 64,-10 64,-2 C64,8 58,14 50,14 C42,14 36,8 36,-2 C36,-10 42,-18 50,-30 Z" fill="${C.water}"/><path d="M-20,-6 h10 M10,-6 h10 M-14,18 Q0,8 14,18" stroke="${C.bg}" stroke-width="5" fill="none" stroke-linecap="round"/>`,
+ wrench:`<path d="M-50,50 L20,-20" stroke="${C.g2}" stroke-width="22" stroke-linecap="round"/><path d="M14,-44 A30,30 0 1 0 44,-14 L26,-16 L16,-26 Z" fill="${C.g2}"/>`,
+};
+
+// ---------- cues & bruitages ----------
+const SFX=[]; const sfx=(type,t,v=1)=>{SFX.push({type,t:Math.round(t*1000)/1000,v});return t;};
+const K={};
+function buildCues(){
+ // S1
+ K.s1Glass=sfx('pop',.55); sfx('whoosh',.12,.6); K.s1Bub=sfx('pop',L(1).start-.15,.8);
+ // S2
+ const a2=SC[2].a; K.s2Fill=sfx('bubbles',a2+.25); K.s2Title=at(2,"Le taux"); sfx('whoosh',K.s2Title,.5);
+ K.s2Drop=at(2,"même dose"); for(let j=0;j<8;j+=2)sfx('plop',K.s2Drop+.45+j*.07,.7);
+ K.s2Badge=sfx('pop',at(2,"taux plus haut"));
+ // S3
+ K.s3Mus=at(3,"Un muscle"); sfx('bubbles',K.s3Mus+.3); K.s3_75=sfx('pop',at(3,"septante-cinq"),.7);
+ K.s3Fat=at(3,"La graisse"); sfx('bubbles',K.s3Fat+.3,.6); K.s3_20=sfx('pop',at(3,"dix à vingt"),.7);
+ K.s3Drop=at(3,"Et l'alcool"); for(let j=0;j<7;j+=2)sfx('plop',K.s3Drop+.5+j*.08,.7);
+ K.s3Ban=sfx('whoosh',at(3,"va dans l'eau"),.6);
+ // S4
+ K.s4P=sfx('whoosh',at(4,"Deux personnes"),.6); K.s4kg=sfx('pop',K.s4P+.5,.5);
+ K.s4Man=at(4,"l'homme"); sfx('bubbles',K.s4Man+.2); K.s4_60=sfx('pop',at(4,"environ soixante"),.7);
+ K.s4Wom=at(4,"La femme"); sfx('bubbles',K.s4Wom+.2); K.s4Fat=K.s4Wom+.3; K.s4_50=sfx('pop',at(4,"environ cinquante"),.7);
+ K.s4Glass=at(4,"Même verre"); for(let j=0;j<8;j+=2){sfx('plop',K.s4Glass+.7+j*.07,.6);}
+ K.s4Gauge=at(4,"moins d'eau"); K.s4Hl=sfx('pop',at(4,"taux plus haut"),.8);
+ K.s4Bub=sfx('pop',L(5).start-.15,.8);
+ K.s4No=sfx('stamp',L(6).start); K.s4Rien=at(6,"Ça n'a rien"); K.s4Moy=sfx('stamp',at(6,"C'est une moyenne"),.8);
+ K.s4Eau=sfx('pop',at(6,"juste une question"),.7);
+ // S5
+ K.s5Title=sfx('whoosh',SC[5].a+.1,.5);
+ K.s5c=[at(7,"si tu pèses"),at(7,"as moins"),at(7,"bois à jeun"),at(7,"bois vite")]; K.s5c.forEach(x=>sfx('pop',x,.8));
+ K.s5Teen=sfx('whoosh',at(7,"À seize ans"),.6); K.s5Glass=at(7,"même verre"); sfx('pop',K.s5Glass+.5,.6);
+ // S6
+ K.s6=SC[6].a; K.s6Drink=L(8).start; sfx('gloup',K.s6Drink+.2,.5); K.s6Int=at(8,"de l'intestin");
+ K.s6Blood=sfx('whoosh',at(8,"passe dans le sang"),.5); K.s6Brain=sfx('pop',at(8,"jusqu'au cerveau"),.7);
+ K.s6Age=sfx('whoosh',at(8,"À seize ans"),.5);
+ K.s6Liver=at(9,"le foie"); for(let j=0;j<5;j++)sfx('gloup',K.s6Liver+.4+j*.32,.7);
+ K.s6_90=sfx('pop',at(9,"plus de nonante"),.8); K.s6Rest=at(9,"Le reste");
+ K.s6r=[at(9,"le souffle"),at(9,"l'urine"),at(9,"la sueur")]; K.s6r.forEach(x=>sfx('pop',x,.5));
+ // S7
+ K.s7=SC[7].a; sfx('whoosh',K.s7+.1,.5); K.s7Enz=sfx('pop',at(10,"deux enzymes"),.6);
+ K.s7A=sfx('pop',at(10,"L'A.D.H."),.7); K.s7B=sfx('pop',at(10,"acétaldéhyde"),.7); K.s7Tox=sfx('buzz',at(10,"toxique"),.7);
+ K.s7C=sfx('pop',at(10,"L'A.L.D.H."),.7); K.s7D=sfx('pop',at(10,"acétate"),.7); K.s7E=sfx('plop',at(10,"en eau"),.9); K.s7F=sfx('fizz',at(10,"gaz carbonique"),.7);
+ // S8
+ K.s8=SC[8].a; K.s8Beat=.8; K.s8G0=K.s8+.7;
+ for(let x=K.s8G0;x<SC[8].b-.3;x+=K.s8Beat)sfx('gloup',x+.32,.75);
+ K.s8Num=sfx('pop',at(11,"moins zéro"),.8); K.s8Bars=at(11,"De zéro virgule cinq"); for(let j=0;j<6;j++)sfx('tick',K.s8Bars+j*.14,.6);
+ K.s8H=sfx('pop',at(11,"environ trois"),.8);
+ // S9
+ K.s9Bub=sfx('pop',L(12).start-.15,.8);
+ K.s9p=[at(13,"Ni café"),at(13,"ni douche"),at(13,"ni eau"),at(13,"ni air"),at(13,"ni sport")];
+ K.s9p.forEach(x=>{sfx('pop',x,.45);sfx('swish',x+.32,.8);});
+ K.s9Time=sfx('pop',at(13,"Seul le temps"),.8);
+ for(let x=K.s9Time+.3;x<SC[9].b-.2;x+=.5)sfx('tick',x,.55);
+ sfx('chime',SC[9].b-.15,.8);
+ // S10
+ K.s10=SC[10].a; sfx('whoosh',K.s10+.1,.5); K.s10Curve=L(14).start; K.s10Glass=sfx('pop',at(14,"dernier verre"),.6);
+ K.s10Peak=sfx('pop',at(14,"le pic arrive"),.8); K.s10Feel=sfx('pop',at(14,"Te sentir bien"),.6); K.s10Up=sfx('whoosh',at(14,"ne veut pas"),.5);
+ // S11
+ K.s11=SC[11].a; sfx('whoosh',K.s11+.05,.5);
+ K.s11r=[at(15,"c'est une concentration"),at(15,"Moins d'eau"),at(15,"Le pic"),at(15,"Le foie"),at(15,"Seul le temps")];
+ K.s11r.forEach(x=>sfx('pop',x,.7));
+ // S12
+ K.s12=SC[12].a; K.s12T=L(16).start-.2; sfx('chime',K.s12T+1.6,.9);
+}
+buildCues();
+
+// ---------- sous-titres ----------
+function subtitle(t){
+ for(const l of LINES){
+  if(l.spk==='A')continue; if(l.scene>=11)continue;
+  if(t<l.start-.05||t>l.start+l.dur+.25)continue;
+  const sp=l.sp.split('|'), sb=l.sub.split('|'), tot=sp.join('').length;
+  let acc=0;
+  for(let j=0;j<sp.length;j++){
+   const a=l.start+l.dur*acc/tot; acc+=sp[j].length; const b=l.start+l.dur*acc/tot;
+   if(t>=a-.05&&(t<b||j===sp.length-1)){
+     const o=Math.min(P(t,a-.05,.12),1-P(t,l.start+l.dur+.1,.15));
+     return G(T(sb[j].trim(),960,1032,{size:40,w:500,fill:C.txt,extra:`stroke="${C.bg2}" stroke-width="12" paint-order="stroke" stroke-linejoin="round"`}),{o});
+   }
+  }
+ }
+ return '';
+}
+
+// ---------- scènes ----------
+function title(str,t,a,y=150,size=78,fill=C.txt){return rise(T(str,0,0,{size,w:900,fill}),t,a,960,y);}
+
+const S={};
+S[1]=t=>{
+ let s='';
+ s+=rise(person('man',0,t),t,.15,640,930,.92);
+ s+=rise(person('woman',0,t),t,.3,1280,930,.92);
+ s+=pop(glass(.7,t),t,K.s1Glass,960,700,1.25);
+ const q=k=>G(T('?',0,0,{size:150,w:900,fill:C.alc}),{o:P(t,K.s1Bub+.4+k*.15,.3),s:1+.06*Math.sin(t*5+k)});
+ s+=G(q(0),{x:640,y:360})+G(q(1),{x:1280,y:360});
+ s+=bubble('Le même verre, pas le même effet ?',960,140,t,K.s1Bub,56);
+ return s;
+};
+S[2]=t=>{
+ let s=title('LE TAUX = UNE CONCENTRATION',t,K.s2Title,140,72);
+ const tank=(cx,wH,seed,dense)=>{
+  const id=uid('tk'), x0=cx-210, base=840, fl=io(P(t,K.s2Fill,1.2)), wt=base-wH*fl;
+  const wave=[];for(let x=x0;x<=x0+420;x+=12)wave.push(`${x},${f(wt+5*Math.sin(x/30+t*3))}`);
+  let d=''; const r=rnd(seed);
+  for(let j=0;j<8;j++){const tx=x0+40+r()*340, ty=base-20-r()*(wH-40), k=oc(P(t,K.s2Drop+j*.07,.6));
+   const sx=cx, sy=380; d+=dot(lerp(sx,tx,k),lerp(sy,ty,k*k),12);}
+  return `<defs><clipPath id="${id}"><rect x="${x0}" y="300" width="420" height="${base-300}" rx="28"/></clipPath></defs>
+   <g clip-path="url(#${id})"><polygon points="${x0-10},${base+10} ${x0+430},${base+10} ${wave.reverse().join(' ')}" fill="${C.water}"/>${t>K.s2Drop?d:''}</g>
+   <rect x="${x0}" y="300" width="420" height="${base-300}" rx="28" fill="none" stroke="${C.g2}" stroke-width="7"/>`;
+ };
+ s+=fade(tank(560,420,3,0),t,SC[2].a+.05)+fade(tank(1360,170,7,1),t,SC[2].a+.05);
+ s+=fade(T("beaucoup d'eau",560,905,{size:44,w:800,fill:C.water}),t,SC[2].a+.4);
+ s+=fade(T("moins d'eau",1360,905,{size:44,w:800,fill:C.water}),t,SC[2].a+.4);
+ s+=G(glass(.8,t),{x:560,y:330+60*(1-oc(P(t,K.s2Drop-.6,.5))),o:P(t,K.s2Drop-.6,.3)*(1-P(t,K.s2Drop+1.2,.4)),s:.8,r:-25*io(P(t,K.s2Drop-.2,.3))});
+ s+=G(glass(.8,t),{x:1360,y:330+60*(1-oc(P(t,K.s2Drop-.6,.5))),o:P(t,K.s2Drop-.6,.3)*(1-P(t,K.s2Drop+1.2,.4)),s:.8,r:-25*io(P(t,K.s2Drop-.2,.3))});
+ s+=pop(`<rect x="-200" y="-50" width="400" height="100" rx="50" fill="${C.alc}"/>${T('TAUX PLUS HAUT',0,16,{size:42,w:900,fill:C.bg})}`,t,K.s2Badge,1360,250);
+ s+=fade(T('taux plus bas',560,250,{size:40,w:800,fill:C.g1}),t,K.s2Badge+.2);
+ return s;
+};
+S[3]=t=>{
+ let s='';
+ const block=(cx,col,lvl,a,seed,label,num,numA)=>{
+  const id=uid('bk'), x0=cx-190, y0=330, H=460, fl=io(P(t,a+.3,1.1)), wt=y0+H-H*lvl*fl;
+  const wave=[];for(let x=x0;x<=x0+380;x+=12)wave.push(`${x},${f(wt+4*Math.sin(x/26+t*3))}`);
+  let d=''; const r=rnd(seed);
+  for(let j=0;j<7;j++){const k=oc(P(t,K.s3Drop+j*.08,.7)); const tx=x0+40+r()*300, ty=y0+H-14-r()*Math.max(H*lvl-28,10);
+   d+=dot(tx,lerp(150,ty,k*k),12);}
+  return rise(`<defs><clipPath id="${id}"><rect x="${x0}" y="${y0}" width="380" height="${H}" rx="36"/></clipPath></defs>
+   <rect x="${x0}" y="${y0}" width="380" height="${H}" rx="36" fill="${col}"/>
+   <g clip-path="url(#${id})"><polygon points="${x0-10},${y0+H+10} ${x0+390},${y0+H+10} ${wave.reverse().join(' ')}" fill="${C.water}"/></g>
+   ${T(label,cx,y0-30,{size:54,w:900,fill:col===C.fat?C.fat:C.txt})}`,t,a,0,0)
+   + G(T(num,cx,y0+150,{size:96,w:900,fill:C.txt,extra:`stroke="${C.bg2}" stroke-width="10" paint-order="stroke"`})+T("d'eau",cx,y0+205,{size:42,w:800,fill:C.txt,extra:`stroke="${C.bg2}" stroke-width="8" paint-order="stroke"`}),{o:P(t,numA,.3),y:20*(1-oc(P(t,numA,.4)))})
+   + (t>K.s3Drop-.1?d:'');
+ };
+ s+=block(620,C.body,.75,K.s3Mus,11,'MUSCLE','≈ 75 %',K.s3_75);
+ s+=block(1300,C.fat,.15,K.s3Fat,5,'GRAISSE','≈ 10–20 %',K.s3_20);
+ s+=rise(`<rect x="-640" y="-58" width="1280" height="96" rx="48" fill="${C.bg2}"/>${T(`L'ALCOOL VA DANS <tspan fill="${C.water}">L'EAU</tspan>, PAS DANS <tspan fill="${C.fat}">LA GRAISSE</tspan>`,0,8,{size:46,w:900})}`,t,K.s3Ban,960,900);
+ return s;
+};
+S[4]=t=>{
+ let s='';
+ const back=P(t,K.s4Bub-.1,.4)*.0, dim=1-.75*P(t,K.s4Bub-.1,.4);
+ const r1=rnd(21), r2=rnd(33);
+ const dotsIn=(r,top,xs,c)=>{let d='';for(let j=0;j<8;j++){const k=oc(P(t,K.s4Glass+.3+j*.07,.7));
+   const tx=-xs+r()*2*xs, ty=-30-r()*(-top-60); d+=dot(tx,lerp(-640,ty,k*k),12);}return t>K.s4Glass+.3?d:'';};
+ const manLvl=.6*io(P(t,K.s4Man,1.1)), womLvl=.5*io(P(t,K.s4Wom,1.1));
+ let people='';
+ people+=rise(person('man',manLvl,t,{extra:dotsIn(r1,-588*.6,70),fatO:.9*P(t,K.s4Fat,.5)}),t,K.s4P,560,900,1.0);
+ people+=rise(person('woman',womLvl,t,{extra:dotsIn(r2,-581*.5,70),fatO:.95*P(t,K.s4Fat,.5)}),t,K.s4P+.15,1300,900,1.0);
+ const kg=x=>pop(`<rect x="-80" y="-34" width="160" height="68" rx="34" fill="${C.bg2}" stroke="${C.g1}" stroke-width="3"/>${T('70 kg',0,15,{size:40,w:800})}`,t,K.s4kg,x,215);
+ people+=G(kg(560)+kg(1300),{o:1-P(t,K.s4Glass-.4,.3)});
+ people+=fade(T('en moyenne',960,140,{size:40,w:800,fill:C.g1}),t,K.s4kg+.2);
+ // chiffres
+ people+=rise(T('≈ 60 %',0,0,{size:92,w:900,fill:C.water})+T("d'eau",0,46,{size:38,w:800,fill:C.water}),t,K.s4_60,250,520);
+ people+=rise(T('+ de muscles',0,0,{size:38,w:800,fill:C.g2}),t,K.s4Man+.2,250,640);
+ people+=rise(T('≈ 50 %',0,0,{size:92,w:900,fill:C.water})+T("d'eau",0,46,{size:38,w:800,fill:C.water}),t,K.s4_50,1640,520);
+ people+=rise(T('+ de graisse',0,0,{size:38,w:800,fill:C.fat}),t,K.s4Wom+.2,1640,640);
+ // verres
+ const gl=x=>G(glass(.8,t),{x,y:270+40*(1-oc(P(t,K.s4Glass-.3,.4))),s:.7,o:P(t,K.s4Glass-.3,.25)*(1-P(t,K.s4Glass+1.1,.3)),r:-30*io(P(t,K.s4Glass+.1,.3))});
+ people+=gl(560)+gl(1300);
+ // jauges
+ const gH=P(t,K.s4Gauge,1);
+ people+=G(gauge(.45*oc(gH)),{x:250,y:860,o:P(t,K.s4Gauge,.3)});
+ people+=G(gauge(.72*oc(gH),'taux',P(t,K.s4Hl,.3)),{x:1640,y:860,o:P(t,K.s4Gauge,.3)});
+ s+=G(people,{o:dim});
+ // question + réponse
+ s+=G(bubble('Attends… donc les filles tiennent moins l’alcool ?',960,170,t,K.s4Bub,50),{o:1-P(t,K.s4No+.1,.3)});
+ const pan=P(t,K.s4No-.05,.3);
+ if(pan>0){
+  s+=G(`<rect x="0" y="0" width="1920" height="1080" fill="${C.bg}"/>`,{o:pan*.6});
+  s+=pop(T('NON.',0,0,{size:200,w:900,fill:C.txt}),t,K.s4No,960,330);
+  s+=rise(T('Rien à voir avec « tenir l’alcool »',0,0,{size:58,w:800,fill:C.g2}),t,K.s4Rien+.3,960,440);
+  s+=pop(`<rect x="-430" y="-80" width="860" height="140" rx="70" fill="${C.bg2}" stroke="${C.g1}" stroke-width="4"/>${T('MOYENNE ≠ RÈGLE',0,22,{size:76,w:900})}`,t,K.s4Moy,960,610);
+  s+=rise(G(ICON.water,{s:.7,x:-300,y:-20})+T("= une question d'eau",40,0,{size:62,w:900,fill:C.water}),t,K.s4Eau,960,800);
+ }
+ return s;
+};
+S[5]=t=>{
+ const teen=P(t,K.s5Teen,.6), up=oc(teen);
+ let s=G(title('CE QUI FAIT MONTER LE TAUX',t,K.s5Title,140,72),{o:1-teen});
+ const labels=['Peser moins lourd','Moins de muscles','Boire à jeun','Boire vite'];
+ const icons=[ICON.scale,ICON.dumbbell,ICON.plate,ICON.watch];
+ let cards='';
+ for(let j=0;j<4;j++){
+  const x=330+420*j, a=K.s5c[j];
+  cards+=pop(`<rect x="-180" y="-170" width="360" height="340" rx="40" fill="${C.bg2}"/>${G(icons[j],{y:-50})}${T(labels[j],0,90,{size:38,w:800})}${G(arrowUp(),{x:130,y:-120,s:.8})}`,t,a,x,520);
+ }
+ s+=G(cards,{y:-46*up,s:1-.45*up,x:960*.45*up});
+ if(teen>0){
+  let tb='';
+  tb+=rise(person('man',0,t),t,K.s5Teen,620,940,.62);
+  tb+=rise(person('man',0,t),t,K.s5Teen+.1,880,940,.78);
+  tb+=rise(`<rect x="-120" y="-50" width="240" height="100" rx="50" fill="${C.txt}"/>${T('16 ANS',0,18,{size:52,w:900,fill:C.bg})}`,t,K.s5Teen+.2,620,520);
+  tb+=rise(T('adulte',0,0,{size:40,w:800,fill:C.g1}),t,K.s5Teen+.3,880,440);
+  tb+=pop(glass(.8,t),t,K.s5Glass,1100,900,.8);
+  tb+=G(T('même verre',0,0,{size:40,w:800,fill:C.g2}),{x:1100,y:960,o:P(t,K.s5Glass+.2,.3)});
+  const gg=oc(P(t,K.s5Glass+.5,.9));
+  tb+=G(gauge(.42*gg,'adulte'),{x:1380,y:900,o:P(t,K.s5Glass+.4,.3)});
+  tb+=G(gauge(.7*gg,'16 ans',P(t,K.s5Glass+1.2,.3)),{x:1560,y:900,o:P(t,K.s5Glass+.4,.3)});
+  s+=tb;
+ }
+ return s;
+};
+S[6]=t=>{
+ let s='';
+ // corps grand format, à gauche
+ const bx=640, by=950, bs=1.4;
+ const stom={x:42,y:-385}, intes={x:0,y:-268}, liv={x:-48,y:-400}, brain={x:0,y:-540}, mouth={x:0,y:-505};
+ // trajet des points
+ const r=rnd(77); const N=14; let dots='';
+ const vessels=[[-120,-420],[-121,-300],[120,-430],[121,-310],[-46,-150],[-46,-40],[46,-150],[46,-40],[0,-560],[-30,-520],[30,-520],[0,-330],[-60,-350],[60,-300]];
+ for(let j=0;j<N;j++){
+  const ph=j*.05, d0=K.s6Drink+ph;
+  let x=mouth.x,y=mouth.y-30;
+  const a1=P(t,d0,.6); x=lerp(0,stom.x+(r()-.5)*40,oc(a1)); y=lerp(-470,stom.y+(r()-.5)*30,oc(a1));
+  const a2=P(t,K.s6Int-.2+ph,.6); x=lerp(x,intes.x+(r()-.5)*90,io(a2)); y=lerp(y,intes.y+(r()-.5)*40,io(a2));
+  const v=vessels[j%vessels.length], a3=P(t,K.s6Blood+ph,.9);
+  const wob=6*Math.sin(t*4+j);
+  x=lerp(x,v[0]+wob,io(a3)); y=lerp(y,v[1]+wob*1.5,io(a3));
+  const a4=P(t,K.s6Liver+.1+j*.06,.6); x=lerp(x,liv.x+(r()-.5)*70,io(a4)); y=lerp(y,liv.y+(r()-.5)*24,io(a4));
+  const gone=P(t,K.s6Liver+.5+j*.06,.3);
+  if(t>d0) dots+=dot(x,y,11*(1-gone*(j<13?1:0.4)),C.alc);
+ }
+ const brainHl=P(t,K.s6Brain,.4)*(1-.0*P(t,K.s6Liver,.5));
+ const organs=`
+  ${G(`<path d="M-44,0 C-48,-40 -10,-52 20,-40 C52,-30 50,10 20,22 C-4,32 -40,30 -44,0 Z" fill="#4A505A"/>`,{x:stom.x,y:stom.y,o:.4+.6*P(t,K.s6Drink,.3)})}
+  ${G(`<path d="M-60,-30 Q-30,-50 0,-30 T60,-30 M-60,0 Q-30,-20 0,0 T60,0 M-60,30 Q-30,10 0,30 T60,30" fill="none" stroke="#4A505A" stroke-width="12" stroke-linecap="round"/>`,{x:intes.x,y:intes.y,o:.4+.6*P(t,K.s6Int,.3)})}
+  ${G(liver(t,Math.max(0,Math.sin(Math.PI*cl((t-K.s6Liver-.3)/0.32)))*P(t,K.s6Liver+.3,.01)*(1-P(t,K.s6Liver+1.9,.01))),{x:liv.x,y:liv.y,s:.42})}
+  <ellipse cx="${brain.x}" cy="${brain.y+10}" rx="44" ry="30" fill="${brainHl>0?C.alc:'#4A505A'}" opacity="${f(.45+.5*brainHl)}"/>`;
+ s+=rise(person('man',0,t,{extra:'',col:C.body})+organs+dots,t,K.s6,bx,by,bs);
+ // étiquettes autour du corps
+ const lab=(str,a,x,y,tx,ty,col=C.g2)=>G(`<line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="${col}" stroke-width="4"/><circle cx="${x}" cy="${y}" r="7" fill="${col}"/>${T(str,tx+(tx>x?14:-14),ty+12,{size:36,w:800,fill:col,anchor:tx>x?'start':'end'})}`,{o:P(t,a,.3)});
+ const B=(p)=>({x:bx+p.x*bs,y:by+p.y*bs});
+ let p=B(stom); s+=lab('estomac',K.s6Drink,p.x+20,p.y,p.x+200,p.y-30);
+ p=B(intes); s+=lab('intestin',K.s6Int,p.x+40,p.y,p.x+230,p.y+40);
+ p=B({x:120,y:-380}); s+=lab('sang',K.s6Blood,p.x+20,p.y+60,p.x+150,p.y+150,C.alc);
+ p=B(brain); s+=lab('cerveau',K.s6Brain,p.x+40,p.y,p.x+220,p.y-20,C.alc);
+ p=B(liv); s+=lab('foie',K.s6Liver,p.x-50,p.y,p.x-200,p.y+60,C.liverT);
+ // panneau droit : cerveau 16 -> 25 ans
+ const pa=P(t,K.s6Age,.5)*(1-P(t,K.s6Liver-.2,.3));
+ if(pa>0){
+  const bar=oc(P(t,K.s6Age+.4,1.2));
+  s+=G(`${T('CERVEAU',0,0,{size:64,w:900,anchor:'start'})}${T('EN CONSTRUCTION',0,64,{size:64,w:900,anchor:'start',fill:C.alc})}
+   <rect x="0" y="130" width="640" height="44" rx="22" fill="${C.bg2}"/>
+   <rect x="0" y="130" width="${f(640*bar)}" height="44" rx="22" fill="${C.g2}"/>
+   <rect x="${f(640*(16/25))-4}" y="116" width="8" height="72" rx="4" fill="${C.alc}" opacity="${f(P(t,K.s6Age+.9,.3))}"/>
+   ${G(T('16 ans',0,0,{size:40,w:800,fill:C.alc}),{x:640*(16/25),y:240,o:P(t,K.s6Age+.9,.3)})}
+   ${G(T('~25 ans',0,0,{size:40,w:800,fill:C.g2,anchor:'end'}),{x:640,y:240,o:P(t,K.s6Age+1.3,.3)})}
+   ${G(T('plus sensible à l’alcool',0,0,{size:46,w:800,anchor:'start',fill:C.txt}),{y:330,o:P(t,K.s6Age+2.2,.4)})}`,{x:1130,y:360+30*(1-oc(P(t,K.s6Age,.5))),o:pa});
+ }
+ const pb=P(t,K.s6Liver,.4);
+ if(pb>0){
+  s+=G(`${T('LE FOIE',0,0,{size:56,w:900,fill:C.liverT,anchor:'start'})}`,{x:1130,y:270,o:pb});
+  s+=pop(T('+ de 90 %',0,0,{size:150,w:900,fill:C.liverT,anchor:'start'}),t,K.s6_90,1130,430);
+  s+=G(T('le reste :',0,0,{size:44,w:800,fill:C.g1,anchor:'start'}),{x:1130,y:560,o:P(t,K.s6Rest,.3)});
+  const ri=[[ICON.breath,'souffle'],[ICON.drop2,'urine'],[ICON.sweat,'sueur']];
+  ri.forEach(([ic,lb],j)=>{s+=pop(G(ic,{s:.75})+T(lb,0,100,{size:38,w:800,fill:C.g2}),t,K.s6r[j],1200+220*j,690);});
+ }
+ return s;
+};
+S[7]=t=>{
+ let s='';
+ s+=rise(G(liver(t),{s:.55})+T('DANS LE FOIE',110,22,{size:64,w:900,anchor:'start',fill:C.liverT}),t,K.s7+.05,200,150);
+ s+=rise(`<rect x="-390" y="-48" width="780" height="96" rx="48" fill="${C.bg2}"/>${G(ICON.wrench,{s:.45,x:-335})}${T('enzyme = un petit outil du corps',30,14,{size:36,w:800,fill:C.g2})}`,t,K.s7Enz,1460,150);
+ const y=520;
+ const node=(x,a,inner,lab,sub,col=C.txt)=>pop(inner+T(lab,0,140,{size:40,w:900,fill:col})+(sub?T(sub,0,188,{size:32,w:800,fill:C.g1}):''),t,a,x,y);
+ const enz=(x,a,name)=>G(G(arrowR(170),{x:-85})+`<rect x="-62" y="-104" width="124" height="60" rx="30" fill="${C.g2}"/>${G(ICON.wrench,{s:.28,x:-38,y:-74})}${T(name,10,-62,{size:32,w:900,fill:C.bg})}`,{x,y,o:P(t,a,.25),s:.8+.2*oc(P(t,a,.4))});
+ s+=node(240,K.s7A,`<circle r="62" fill="${C.alc}"/>`,'ALCOOL','');
+ s+=enz(470,K.s7A+.15,'ADH');
+ const shake=P(t,K.s7Tox,.01)*(1-P(t,K.s7Tox+.6,.01))*6*Math.sin(t*60);
+ let spikes='';for(let j=0;j<12;j++){const an=j*Math.PI/6;spikes+=`${f(Math.cos(an)*78)},${f(Math.sin(an)*78)} ${f(Math.cos(an+Math.PI/12)*58)},${f(Math.sin(an+Math.PI/12)*58)} `;}
+ s+=G(node(720,K.s7B,`<polygon points="${spikes}" fill="${C.alc}"/><circle r="40" fill="#C9473B"/>`,'ACÉTALDÉHYDE',''),{x:shake});
+ s+=pop(`<rect x="-120" y="-34" width="240" height="68" rx="34" fill="${C.alc}"/>${T('⚠ toxique',0,13,{size:36,w:900,fill:C.bg})}`,t,K.s7Tox,720,350);
+ s+=enz(960,K.s7C,'ALDH');
+ s+=node(1200,K.s7D,`<circle r="58" fill="${C.g2}"/>`,'ACÉTATE','');
+ s+=G(G(arrowR(150),{x:-75}),{x:1410,y,o:P(t,K.s7E-.15,.25)});
+ s+=pop(G(ICON.water,{s:.95})+T('EAU',0,140,{size:40,w:900,fill:C.water}),t,K.s7E,1610,y);
+ s+=pop(`<circle r="34" cx="-10" cy="10" fill="none" stroke="${C.g2}" stroke-width="7"/><circle r="20" cx="34" cy="-30" fill="none" stroke="${C.g2}" stroke-width="6"/><circle r="12" cx="20" cy="40" fill="none" stroke="${C.g2}" stroke-width="5"/>`+T('CO₂',0,140,{size:40,w:900,fill:C.g2}),t,K.s7F,1790,y);
+ s+=G(T('+',0,0,{size:60,w:900,fill:C.g1}),{x:1700,y:y+14,o:P(t,K.s7F,.3)});
+ return s;
+};
+S[8]=t=>{
+ let s='';
+ s+=title('VITESSE FIXE',t,K.s8+.05,150,84,C.txt);
+ // foie qui avale à rythme fixe
+ const lx=420, ly=560; const ph=(t-K.s8G0)/K.s8Beat, n=Math.floor(ph), fr=ph-n;
+ const gulp=t>K.s8G0? Math.max(0,Math.sin(Math.PI*cl((fr-.35)/.3))) : 0;
+ let q='';
+ for(let j=0;j<7;j++){
+  const pos=j-(t>K.s8G0?fr:0); // position dans la file (0 = à la bouche)
+  if(pos<-.0)continue;
+  const x=lx+150+pos*95, sc=pos<0.4?cl(pos/.4):1;
+  q+=dot(x,ly+(pos<.6?0:0),18*Math.max(sc,.0));
+ }
+ s+=fade(`<rect x="${lx+120}" y="${ly+24}" width="720" height="10" rx="5" fill="${C.body}"/>`+q,t,K.s8+.2);
+ s+=rise(G(liver(t,gulp),{s:1.2}),t,K.s8+.1,lx,ly);
+ s+=fade(T('même rythme, toujours',lx,ly+190,{size:38,w:800,fill:C.g1}),t,K.s8+.9);
+ // chiffre clé
+ s+=pop(T('−0,1 à 0,15 ‰',0,0,{size:118,w:900,fill:C.txt}),t,K.s8Num,1450,330);
+ s+=rise(T('par heure',0,0,{size:52,w:800,fill:C.liverT}),t,K.s8Num+.3,1450,400);
+ // barres 0,5 -> 0
+ const bx=1120, by=880, bw=80, gap=36;
+ for(let j=0;j<6;j++){
+  const v=.5-.1*j, h=v*560*oc(P(t,K.s8Bars+j*.14,.4));
+  s+=G(`${h>1?`<rect x="0" y="${f(-h)}" width="${bw}" height="${f(h)}" rx="12" fill="${C.alc}"/>`:''}${T(j+' h',bw/2,40,{size:30,w:800,fill:C.g1})}`,{x:bx+j*(bw+gap),y:by,o:P(t,K.s8Bars+j*.14,.2)});
+ }
+ s+=G(T('0,5 ‰',bx+bw/2,by-300,{size:36,w:900,fill:C.alc}),{o:P(t,K.s8Bars,.3)});
+ s+=pop(`<rect x="-170" y="-50" width="340" height="100" rx="50" fill="${C.txt}"/>${T('3 à 5 h',0,20,{size:58,w:900,fill:C.bg})}`,t,K.s8H,1560,560);
+ return s;
+};
+S[9]=t=>{
+ let s='';
+ s+=G(bubble('Et un café, ça n’aide pas ?',960,150,t,K.s9Bub,56),{o:1-P(t,K.s9p[0]-.2,.3)});
+ s+=G(T('RIEN N’ACCÉLÈRE LE FOIE',0,0,{size:70,w:900}),{x:960,y:150,o:P(t,K.s9p[0],.4)});
+ const ics=[ICON.coffee,ICON.shower,ICON.water,ICON.wind,ICON.run], lb=['café','douche froide','eau','air frais','sport'];
+ const up=oc(P(t,K.s9Time,.6));
+ let row='';
+ ics.forEach((ic,j)=>{
+  const a=K.s9p[j], x=320+320*j;
+  row+=pop(`<circle r="105" fill="${C.bg2}"/>${G(ic,{s:.9})}${strike(oc(P(t,a+.3,.22)))}${T(lb[j],0,160,{size:36,w:800,fill:C.g2})}`,t,a,x,470);
+ });
+ s+=G(row,{y:-90*up,s:1-.25*up,x:960*.25*up});
+ const ha=P(t,K.s9Time,.5);
+ if(ha>0){
+  const run=P(t,K.s9Time+.3,SC[9].b-K.s9Time-.4);
+  s+=pop(hourglass(t,run),t,K.s9Time,700,720,.85);
+  s+=rise(T('SEUL LE TEMPS',0,0,{size:96,w:900,anchor:'start'}),t,K.s9Time+.15,830,750);
+ }
+ return s;
+};
+S[10]=t=>{
+ let s='';
+ s+=title('LE TAUX MONTE ENCORE',t,K.s10+.05,140,76);
+ // graphe
+ const ox=260, oy=790, W=1400, H=470;
+ const tmax=5; // heures affichées
+ const X=h=>ox+W*h/tmax, Y=v=>oy-H*v;
+ const tg=1.0; // dernier verre à 1 h
+ const peakT=tg+.75; // pic entre 30 et 60 min après
+ const curve=h=>{ if(h<0.15)return 0; if(h<peakT){const k=(h-.15)/(peakT-.15);return .85*Math.sin(k*Math.PI/2);} return Math.max(0,.85-.22*(h-peakT)); };
+ s+=fade(`<line x1="${ox}" y1="${oy}" x2="${ox+W+30}" y2="${oy}" stroke="${C.g1}" stroke-width="5"/><line x1="${ox}" y1="${oy}" x2="${ox}" y2="${oy-H-40}" stroke="${C.g1}" stroke-width="5"/>
+  ${T('taux',ox-20,oy-H-10,{size:36,w:800,fill:C.g1,anchor:'end'})}${T('temps',ox+W+30,oy+50,{size:36,w:800,fill:C.g1,anchor:'end'})}`,t,K.s10+.1);
+ // zone du pic
+ const zk=P(t,K.s10Peak,.4);
+ s+=G(`<rect x="${X(tg+.5)}" y="${oy-H-20}" width="${X(tg+1)-X(tg+.5)}" height="${H+20}" fill="${C.alc}" opacity=".16"/>
+   ${T('pic : 30 à 60 min après',X(tg+.75),oy-H-40,{size:40,w:900,fill:C.alc})}`,{o:zk});
+ // courbe tracée progressivement
+ const drawTo=lerp(0,tmax,io(P(t,K.s10Curve-.3,3.2)));
+ const pts=[];for(let h=0;h<=drawTo;h+=.04)pts.push(`${f(X(h))},${f(Y(curve(h)))}`);
+ if(pts.length>1)s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${C.alc}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>`;
+ // dernier verre
+ s+=G(`<line x1="${X(tg)}" y1="${oy}" x2="${X(tg)}" y2="${oy-H}" stroke="${C.g2}" stroke-width="4" stroke-dasharray="12 12"/>${G(glass(.6,t),{x:X(tg),y:oy+95,s:.45})}${T('dernier verre',X(tg),oy+140,{size:32,w:800,fill:C.g2})}`,{o:P(t,K.s10Glass,.3)});
+ // je me sens bien
+ const fx=X(tg+.15), fy=Y(curve(tg+.15));
+ s+=pop(`<rect x="-200" y="-46" width="400" height="92" rx="46" fill="${C.txt}"/>${T('« je me sens bien »',0,14,{size:36,w:800,fill:C.bg})}`,t,K.s10Feel,1150,680);
+ s+=G(`<line x1="950" y1="670" x2="${f(fx+14)}" y2="${f(fy+10)}" stroke="${C.txt}" stroke-width="4" stroke-dasharray="10 10"/><circle cx="${f(fx)}" cy="${f(fy)}" r="14" fill="${C.txt}"/>`,{o:P(t,K.s10Feel+.2,.3)});
+ s+=G(T('…mais le taux monte encore',0,0,{size:44,w:900,fill:C.alc,anchor:'start'}),{x:835,y:770,o:P(t,K.s10Up,.3)});
+ s+=G(arrowUp(),{x:fx+55,y:fy-30,o:P(t,K.s10Up,.3)*(.75+.25*Math.sin(t*8)),s:1.1});
+ return s;
+};
+S[11]=t=>{
+ let s=title('À RETENIR',t,K.s11+.05,150,90);
+ const rows=[
+  [`${ICON.water}`,'Le taux = une concentration'],
+  [`${G(ICON.water,{s:.7,x:-20})}${G(arrowUp(),{x:50,y:0,s:.9})}`,'Moins d’eau → taux plus haut'],
+  [`<polyline points="-60,40 -20,-30 10,-40 60,30" fill="none" stroke="${C.alc}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`,'Le pic vient après le dernier verre'],
+  [G(liver(t),{s:.42}),'Le foie va à vitesse fixe'],
+  [G(hourglass(t,.5),{s:.36}),'Seul le temps fait baisser le taux'],
+ ];
+ rows.forEach(([ic,lb],j)=>{
+  s+=rise(`<rect x="-30" y="-58" width="1220" height="116" rx="58" fill="${C.bg2}"/>${G(ic,{x:60,s:.7})}${T(lb,150,18,{size:50,w:800,anchor:'start'})}`,t,K.s11r[j],380,300+140*j);
+ });
+ return s;
+};
+S[12]=t=>{
+ let s='';
+ s+=rise(T('Maintenant, tu sais',0,0,{size:110,w:900}),t,K.s12T,960,430);
+ s+=rise(T('comment ça marche.',0,0,{size:110,w:900,fill:C.water}),t,K.s12T+.25,960,560);
+ s+=pop(glass(.7,t),t,K.s12T+.9,700,860,.7);
+ s+=pop(G(liver(t),{s:.55}),t,K.s12T+1.05,960,800);
+ s+=pop(hourglass(t,P(t,K.s12T+1.2,3)),t,K.s12T+1.2,1220,800,.45);
+ return s;
+};
+
+// ---------- composition ----------
+function background(t){
+ return `<defs><radialGradient id="vg" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#282C32"/><stop offset="1" stop-color="${C.bg2}"/></radialGradient></defs>
+  <rect width="1920" height="1080" fill="url(#vg)"/>`;
+}
+function progress(t){ // fine barre de progression en bas
+ return `<rect x="0" y="1074" width="${f(1920*t/DUR)}" height="6" fill="${C.water}" opacity=".7"/>`;
+}
+function render(t){
+ UID=0;
+ let out=background(t);
+ for(let k=1;k<=12;k++){
+  const {a,b}=SC[k];
+  if(t<a||t>=b+.35)continue;
+  const fin=k===1?1:oc(P(t,a,.35)), fout=k<12?1-P(t,b,.3):1;
+  const o=Math.min(fin,fout);
+  const slide=k===1?0:40*(1-fin);
+  out+=G(S[k](t),{o,x:slide});
+ }
+ out+=subtitle(t);
+ out+=progress(t);
+ const fo=P(t,DUR-1.1,1.0), fi=1-P(t,0,.4);
+ const blk=Math.max(fo,fi);
+ if(blk>0)out+=`<rect width="1920" height="1080" fill="#000" opacity="${f(blk)}"/>`;
+ document.getElementById('v').innerHTML=out;
+}
+window.render=render; window.SFX=SFX; window.ERR=ERR; window.SC=SC; window.LINES=LINES;
+render(parseFloat(new URLSearchParams(location.search).get('t')||'6'));
+</script>
+</body>
+</html>
