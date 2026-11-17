@@ -4,7 +4,7 @@
 
 **Voix :** Brick – Voix professionnelle, calme (ElevenLabs), modèle eleven_v4. Les mots entre crochets sont des indications de jeu pour ElevenLabs : ils ne sont pas prononcés.
 
-**Durée estimée :** environ 2 min 15.
+**Durée :** environ 2 min (deux prises générées : 1 min 58 et 2 min 01).
 
 ---
 
