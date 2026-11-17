@@ -1,0 +1,81 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Monologue,Inter SemiBold,54,&H00FFFFFF,&H00FFFFFF,&H64000000,&H96000000,0,0,0,0,100,100,0.5,0,1,2.6,1.2,2,160,160,84,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.16,0:00:03.23,Monologue,,0,0,0,,{\fad(120,120)}6 h 30.
+Dialogue: 0,0:00:03.36,0:00:04.27,Monologue,,0,0,0,,{\fad(120,120)}Il pleut.
+Dialogue: 0,0:00:04.40,0:00:07.08,Monologue,,0,0,0,,{\fad(120,120)}Une pluie d'automne, fine, patiente.
+Dialogue: 0,0:00:07.12,0:00:08.08,Monologue,,0,0,0,,{\fad(120,120)}Comme moi.
+Dialogue: 0,0:00:08.12,0:00:09.92,Monologue,,0,0,0,,{\fad(120,120)}Le café fume dans le porte-gobelet.
+Dialogue: 0,0:00:09.96,0:00:11.40,Monologue,,0,0,0,,{\fad(120,120)}La radio parle doucement.
+Dialogue: 0,0:00:11.44,0:00:14.52,Monologue,,0,0,0,,{\fad(120,120)}Les essuie-glaces vont et\Nviennent… gauche, droite.
+Dialogue: 0,0:00:14.56,0:00:16.00,Monologue,,0,0,0,,{\fad(120,120)}Gauche, droite.
+Dialogue: 0,0:00:16.04,0:00:17.52,Monologue,,0,0,0,,{\fad(120,120)}J'arrive à l'entrée de l'autoroute.
+Dialogue: 0,0:00:17.56,0:00:18.60,Monologue,,0,0,0,,{\fad(120,120)}Ma voie est pleine :
+Dialogue: 0,0:00:18.64,0:00:21.20,Monologue,,0,0,0,,{\fad(120,120)}une longue file de feux arrière\Nqui brillent sous la pluie.
+Dialogue: 0,0:00:21.24,0:00:22.24,Monologue,,0,0,0,,{\fad(120,120)}Je me mets au bout.
+Dialogue: 0,0:00:22.28,0:00:24.97,Monologue,,0,0,0,,{\fad(120,120)}J'ai le temps. Le matin, j'ai\Ntoujours un peu de temps.
+Dialogue: 0,0:00:25.01,0:00:26.04,Monologue,,0,0,0,,{\fad(120,120)}C'est mon luxe.
+Dialogue: 0,0:00:26.08,0:00:28.94,Monologue,,0,0,0,,{\fad(120,120)}Sur la voie de droite, celle\Nqui va à Crissier, ça roule.
+Dialogue: 0,0:00:29.80,0:00:32.00,Monologue,,0,0,0,,{\fad(120,120)}Une voiture remonte la\Nfile, par la droite.
+Dialogue: 0,0:00:32.04,0:00:35.99,Monologue,,0,0,0,,{\fad(120,120)}Elle avance, elle avance… et\Nau dernier moment, clignoteur.
+Dialogue: 0,0:00:36.03,0:00:37.71,Monologue,,0,0,0,,{\fad(120,120)}Elle se glisse devant moi.
+Dialogue: 0,0:00:38.08,0:00:39.92,Monologue,,0,0,0,,{\fad(120,120)}Bon. Il ne connaît\Npeut-être pas le coin.
+Dialogue: 0,0:00:39.96,0:00:41.19,Monologue,,0,0,0,,{\fad(120,120)}Ça arrive.
+Dialogue: 0,0:00:41.47,0:00:42.32,Monologue,,0,0,0,,{\fad(120,120)}Une deuxième.
+Dialogue: 0,0:00:42.36,0:00:43.36,Monologue,,0,0,0,,{\fad(120,120)}Même trajectoire.
+Dialogue: 0,0:00:43.40,0:00:45.47,Monologue,,0,0,0,,{\fad(120,120)}Même clignoteur de dernière seconde.
+Dialogue: 0,0:00:45.92,0:00:47.04,Monologue,,0,0,0,,{\fad(120,120)}Une troisième.
+Dialogue: 0,0:00:47.08,0:00:48.12,Monologue,,0,0,0,,{\fad(120,120)}Le feu passe au vert.
+Dialogue: 0,0:00:48.16,0:00:49.27,Monologue,,0,0,0,,{\fad(120,120)}Trois voitures passent.
+Dialogue: 0,0:00:49.31,0:00:50.24,Monologue,,0,0,0,,{\fad(120,120)}Deux d'entre elles n'étaient même
+Dialogue: 0,0:00:50.28,0:00:51.96,Monologue,,0,0,0,,{\fad(120,120)}pas dans la file il y a une minute.
+Dialogue: 0,0:00:52.00,0:00:52.89,Monologue,,0,0,0,,{\fad(120,120)}Rouge.
+Dialogue: 0,0:00:52.93,0:00:54.04,Monologue,,0,0,0,,{\fad(120,120)}Une quatrième.
+Dialogue: 0,0:00:54.08,0:00:55.44,Monologue,,0,0,0,,{\fad(120,120)}Mes mains se serrent sur le volant.
+Dialogue: 0,0:00:55.48,0:00:57.36,Monologue,,0,0,0,,{\fad(120,120)}Les essuie-glaces battent\Ntoujours la mesure…
+Dialogue: 0,0:00:57.40,0:00:59.88,Monologue,,0,0,0,,{\fad(120,120)}mais mon cœur, lui, est\Npassé en vitesse rapide.
+Dialogue: 0,0:00:59.92,0:01:01.08,Monologue,,0,0,0,,{\fad(120,120)}Je pourrais klaxonner.
+Dialogue: 0,0:01:01.12,0:01:02.20,Monologue,,0,0,0,,{\fad(120,120)}Il ne m'entendra pas.
+Dialogue: 0,0:01:02.24,0:01:03.08,Monologue,,0,0,0,,{\fad(120,120)}Ou il rira.
+Dialogue: 0,0:01:03.12,0:01:05.80,Monologue,,0,0,0,,{\fad(120,120)}Je pourrais coller la voiture de\Ndevant, ne laisser aucune place…
+Dialogue: 0,0:01:05.84,0:01:08.04,Monologue,,0,0,0,,{\fad(120,120)}et finir dans sa portière,\Npour avoir eu raison.
+Dialogue: 0,0:01:08.08,0:01:09.12,Monologue,,0,0,0,,{\fad(120,120)}Je pourrais lui parler.
+Dialogue: 0,0:01:09.16,0:01:11.47,Monologue,,0,0,0,,{\fad(120,120)}À travers deux vitres… et la pluie.
+Dialogue: 0,0:01:12.56,0:01:15.36,Monologue,,0,0,0,,{\fad(120,120)}Imaginez la caisse du\Nsupermarché, un samedi matin.
+Dialogue: 0,0:01:15.40,0:01:16.56,Monologue,,0,0,0,,{\fad(120,120)}Vous avez votre panier.
+Dialogue: 0,0:01:16.60,0:01:17.88,Monologue,,0,0,0,,{\fad(120,120)}Vous avez pris votre place.
+Dialogue: 0,0:01:17.92,0:01:19.72,Monologue,,0,0,0,,{\fad(120,120)}Et quelqu'un arrive\Npar l'allée d'à côté…
+Dialogue: 0,0:01:19.76,0:01:22.55,Monologue,,0,0,0,,{\fad(120,120)}et pose ses courses sur le\Ntapis, juste devant les vôtres.
+Dialogue: 0,0:01:22.59,0:01:24.60,Monologue,,0,0,0,,{\fad(120,120)}« Oh, pardon… je ne vous avais pas vu. »
+Dialogue: 0,0:01:24.64,0:01:26.00,Monologue,,0,0,0,,{\fad(120,120)}Ça n'arrive presque jamais.
+Dialogue: 0,0:01:26.04,0:01:27.72,Monologue,,0,0,0,,{\fad(120,120)}Parce que toute la file se retournerait.
+Dialogue: 0,0:01:27.76,0:01:28.87,Monologue,,0,0,0,,{\fad(120,120)}Parce que quelqu'un dirait :
+Dialogue: 0,0:01:28.91,0:01:30.58,Monologue,,0,0,0,,{\fad(120,120)}« Monsieur, la file commence là-bas. »
+Dialogue: 0,0:01:30.62,0:01:32.89,Monologue,,0,0,0,,{\fad(120,120)}Et il irait au bout, les joues rouges.
+Dialogue: 0,0:01:32.93,0:01:34.72,Monologue,,0,0,0,,{\fad(120,120)}Mais ici, il y a une vitre.
+Dialogue: 0,0:01:34.76,0:01:35.60,Monologue,,0,0,0,,{\fad(120,120)}De la pluie.
+Dialogue: 0,0:01:35.64,0:01:36.64,Monologue,,0,0,0,,{\fad(120,120)}Un clignoteur.
+Dialogue: 0,0:01:36.68,0:01:37.60,Monologue,,0,0,0,,{\fad(120,120)}Pas de regard.
+Dialogue: 0,0:01:37.64,0:01:38.52,Monologue,,0,0,0,,{\fad(120,120)}Pas de honte.
+Dialogue: 0,0:01:38.56,0:01:40.59,Monologue,,0,0,0,,{\fad(120,120)}Juste des feux arrière qui s'éloignent.
+Dialogue: 0,0:01:41.36,0:01:42.80,Monologue,,0,0,0,,{\fad(120,120)}Alors je reste dans ma file.
+Dialogue: 0,0:01:42.84,0:01:44.00,Monologue,,0,0,0,,{\fad(120,120)}Pas parce que je suis naïf.
+Dialogue: 0,0:01:44.04,0:01:46.81,Monologue,,0,0,0,,{\fad(120,120)}Parce qu'une file, ça ne\Ntient que si chacun y reste.
+Dialogue: 0,0:01:46.85,0:01:48.60,Monologue,,0,0,0,,{\fad(120,120)}Les essuie-glaces ont\Nrepris leur rythme.
+Dialogue: 0,0:01:48.64,0:01:50.08,Monologue,,0,0,0,,{\fad(120,120)}Gauche, droite.
+Dialogue: 0,0:01:50.12,0:01:51.19,Monologue,,0,0,0,,{\fad(120,120)}Le feu passe au vert.
+Dialogue: 0,0:01:51.23,0:01:52.08,Monologue,,0,0,0,,{\fad(120,120)}C'est mon tour.
+Dialogue: 0,0:01:52.12,0:01:54.32,Monologue,,0,0,0,,{\fad(120,120)}Ce matin, mon tour m'a\Ncoûté huit minutes…
+Dialogue: 0,0:01:54.36,0:01:55.60,Monologue,,0,0,0,,{\fad(120,120)}et un peu de ma bonne humeur.
+Dialogue: 0,0:01:55.64,0:01:57.79,Monologue,,0,0,0,,{\fad(120,120)}Eux, ils ont gagné trente secondes.
+Dialogue: 0,0:01:58.52,0:02:00.27,Monologue,,0,0,0,,{\fad(120,120)}Je me demande ce qu'ils en font.

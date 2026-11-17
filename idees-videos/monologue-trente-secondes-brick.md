@@ -76,3 +76,32 @@ Au supermarché, presque personne ne double la file : tout le monde se voit, et 
 - **Fichier :** `trente-secondes-mix.mp3`, 2 min 04, MP3 320 kbit/s (envoyé dans la conversation).
 - **Éléments :** voix Brick prise 1, pluie variation 1, essuie-glaces variation 1.
 - **Réglages :** 2 s d'ambiance seule avant la voix et 4 s après. Pluie 12 dB et essuie-glaces 16 dB sous la voix, avec atténuation automatique : l'ambiance baisse quand la voix parle et remonte dans les silences. Fondus d'entrée et de sortie. Niveau final −16 LUFS, crête −1,7 dBFS.
+
+## Vidéo
+
+- **Fichier :** `trente-secondes.mp4`, 2 min 04, 16:9 en 1080p à 30 images/s, sous-titres incrustés (envoyé dans la conversation).
+- **Images :** 12 images générées par IA (ElevenLabs, GPT Image 2.5, 4 variantes par plan, 9 120 crédits), animées par des mouvements de caméra lents.
+- **Montage :** fondus enchaînés calés sur la narration, coupe sèche sur « Rouge. », fondu au noir pour entrer dans la scène du supermarché et en sortir, fondu au noir final.
+- **Sous-titres :** calés au mot près sur la voix, grâce à une transcription horodatée.
+- **Fichiers de travail :** les scripts de mixage, de sous-titres et de montage sont dans `outils/`. Le minutage, les identifiants ElevenLabs des images retenues et les sous-titres (`.ass` et `.srt`) sont dans `outils/trente-secondes/`.
+
+| Temps | Image | Moment |
+|---|---|---|
+| 0:00 | A – Habitacle sous la pluie | 6 h 30, il pleut, le café |
+| 0:11 | B – Essuie-glaces | Gauche, droite |
+| 0:16 | C – File de feux arrière | Ma voie est pleine |
+| 0:26 | D – Voiture sur la voie de droite | Elle se glisse devant moi |
+| 0:37 | A | Bon. Ça arrive. |
+| 0:41 | D | Une deuxième, une troisième |
+| 0:47 | E – Feu vert | Le feu passe au vert |
+| 0:52 | F – Mains crispées | Rouge. (coupe sèche) |
+| 0:59 | G – Conducteur tendu | Je pourrais klaxonner… |
+| 1:08 | H – Deux vitres | À travers deux vitres… et la pluie |
+| 1:12 | I – File à la caisse | Imaginez la caisse du supermarché |
+| 1:17 | J – Celui qui passe devant | « Oh, pardon… » |
+| 1:24 | J | Toute la file se retournerait |
+| 1:32 | K – Feux arrière qui s'éloignent | Pas de regard. Pas de honte. |
+| 1:40 | A | Je reste dans ma file |
+| 1:46 | B | Les essuie-glaces ont repris leur rythme |
+| 1:50 | E | C'est mon tour |
+| 1:52 | L – Autoroute à l'aube | Trente secondes |
