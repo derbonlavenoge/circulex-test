@@ -23,7 +23,7 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 2. Fermeture éclair ou resquille ? La différence que beaucoup ignorent
 3. Les « touristes de Crissier » : ce que dit vraiment la loi
 
-**Miniature :** la photo du carrefour (plaques floutées), une flèche rouge qui montre la voiture remonter puis se rabattre, et le mot « RESQUILLE ? ».
+**Miniature :** la photo du carrefour, une flèche rouge qui montre la voiture remonter puis se rabattre, et le mot « RESQUILLE ? ».
 
 ---
 
@@ -119,7 +119,6 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 ## Notes de tournage
 
 - **Schéma animé vu du dessus** : trois voies, flèches au sol, ligne discontinue puis continue avant le feu. C'est lui qui fera comprendre la différence entre devancer et dépasser.
-- **Floutez les plaques** : sur la photo de ce matin, au moins deux plaques sont lisibles. Floutez-les, comme sur toute image tournée sur la route.
 - **Plans embarqués** : utilisez une caméra fixée ou un passager, jamais le téléphone en main au volant, même dans un bouchon. Pour une chaîne sur les règles de circulation, ce serait le mauvais exemple.
 - **Références à l'écran** : afficher l'article à chaque règle citée renforce la crédibilité.
 
