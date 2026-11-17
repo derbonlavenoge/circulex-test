@@ -8,13 +8,13 @@
 
 ## Le message en une phrase
 
-Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la file, c'est interdit** : sur un tronçon de présélection, on n'a pas le droit de changer de voie pour dépasser (art. 13 al. 3 OCR). Et ce n'est **pas** une « fermeture éclair ».
+Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la file, c'est interdit** : sur un tronçon de présélection, on n'a pas le droit de changer de voie pour dépasser (art. 13 al. 3 OCR, 100 francs d'amende d'ordre). Et ce n'est **pas** une « fermeture éclair ».
 
 ## Les 4 points à faire passer
 
-1. **Devancer, ce n'est pas dépasser.** Avancer plus vite dans sa propre voie, c'est *devancer*. Sur un tronçon de présélection où chaque voie indique une destination différente, c'est autorisé. Se rabattre devant quelqu'un qu'on suivait, c'est *dépasser*.
-2. **Changer de voie pour dépasser sur un tronçon de présélection est interdit** (art. 13 al. 3 OCR). Les flèches de présélection obligent à franchir le carrefour dans leur direction (art. 74 al. 2 OSR ; ATF 104 IV 110).
-3. **La fermeture éclair ne s'applique pas ici.** Elle est obligatoire depuis le 1er janvier 2021, mais seulement quand une voie se termine ou est barrée (art. 8 al. 5 OCR). À une présélection, aucune voie ne disparaît : chaque voie mène quelque part.
+1. **Devancer, ce n'est pas dépasser.** Avancer plus vite dans sa propre voie que la file d'à côté, c'est *devancer*. Se rabattre devant quelqu'un qu'on suivait, c'est *dépasser*. Le Tribunal fédéral distingue les deux (ATF 142 IV 93). En localité, sur une route à plusieurs voies, on peut même devancer par la droite (art. 8 al. 3 OCR).
+2. **Changer de voie pour dépasser sur un tronçon de présélection est interdit** (art. 13 al. 3 OCR). Les flèches de présélection sont obligatoires : on franchit le carrefour dans leur direction (art. 74 al. 2 OSR), et celui qui s'est engagé dans une voie fléchée doit y rester (ATF 104 IV 110).
+3. **La fermeture éclair ne s'applique pas ici.** Elle est obligatoire depuis le 1er janvier 2021, mais seulement quand une voie se termine ou ne peut plus être empruntée (art. 8 al. 5 OCR). À une présélection, aucune voie ne disparaît : chaque voie mène quelque part.
 4. **C'est à celui qui change de voie de trouver sa place**, sans mettre personne en danger (art. 44 al. 1 et 34 al. 3 LCR). La file n'a pas à lui céder le passage. Mais pas de justice privée non plus (art. 26 al. 2 LCR).
 
 ## Titres possibles
@@ -44,10 +44,11 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 ### 0:50 · Devancer ou dépasser ?
 
-> **VOIX :** D'abord, soyons honnêtes : celui qui roule plus vite que vous dans la voie de Crissier et qui va *vraiment* à Crissier ne fait rien de mal. Sur un tronçon de présélection, quand chaque voie indique une destination différente, on a le droit d'avancer plus vite dans sa voie que dans celle d'à côté. Ça s'appelle **devancer**.
-> Le problème commence quand il revient dans votre voie, devant vous, alors qu'il était derrière. Là, ce n'est plus devancer : c'est **dépasser**. Et c'est exactement ce que la loi interdit ici.
+> **VOIX :** D'abord, soyons honnêtes : celui qui roule plus vite que vous dans la voie de Crissier et qui va *vraiment* à Crissier ne fait rien de mal. Avancer plus vite dans sa propre voie que la file d'à côté, ça s'appelle **devancer**. En localité, sur une route à plusieurs voies, c'est même permis par la droite.
+> Le problème commence quand il revient dans votre voie, devant vous, alors qu'il était derrière. Là, ce n'est plus devancer : c'est **dépasser**. Le Tribunal fédéral fait clairement la différence. Et sur une présélection, c'est exactement ce que la loi interdit.
 
 **TEXTE À L'ÉCRAN :** DEVANCER = rester dans sa voie ✅ · DÉPASSER = se rabattre devant ❌
+**TEXTE :** Art. 8 al. 3 OCR · ATF 142 IV 93
 
 ### 1:30 · Ce que dit la loi
 
@@ -55,7 +56,7 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 **TEXTE :** Art. 13 al. 3 OCR
 
-> **VOIX :** Deuxième règle : les flèches au sol. Si votre voie porte une flèche de présélection, vous ne pouvez franchir le carrefour que dans la direction de cette flèche. Le Tribunal fédéral l'a dit dès 1978 : la flèche vous autorise à aller dans sa direction… et donc vous oblige à y aller.
+> **VOIX :** Deuxième règle : les flèches au sol. Si votre voie porte une flèche de présélection, vous ne pouvez franchir le carrefour que dans sa direction. Le Tribunal fédéral l'a jugé dès 1978 : ces flèches ne sont pas de simples indications, elles sont obligatoires. Et celui qui s'est engagé dans une voie fléchée doit y rester.
 
 **TEXTE :** Art. 74 al. 2 OSR · ATF 104 IV 110
 
@@ -66,7 +67,7 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 ### 2:45 · « Mais la fermeture éclair, c'est obligatoire ! »
 
-> **VOIX :** Je vous vois venir dans les commentaires : « Depuis 2021, la fermeture éclair est obligatoire ! » C'est vrai… mais seulement quand une voie se termine ou est barrée : chantier, rétrécissement, voie qui disparaît. Là, oui : on utilise les deux voies jusqu'au bout et on s'insère un par un juste avant le rétrécissement. Celui qui remonte jusqu'au bout fait exactement ce qu'il faut.
+> **VOIX :** Je vous vois venir dans les commentaires : « Depuis 2021, la fermeture éclair est obligatoire ! » C'est vrai… mais seulement quand une voie se termine ou ne peut plus être empruntée : chantier, rétrécissement, voie qui disparaît. Là, oui : on utilise les deux voies jusqu'au bout et on s'insère un par un juste avant le rétrécissement. Celui qui remonte jusqu'au bout fait exactement ce qu'il faut, et c'est celui qui refuse de le laisser entrer qui est en tort.
 > À une présélection, aucune voie ne disparaît. Chaque voie va quelque part. Celui qui a pris la voie de Crissier n'a pas « perdu » sa voie : il a choisi la mauvaise.
 
 **VISUEL :** écran partagé. À gauche, un rétrécissement avec fermeture éclair ✅. À droite, une présélection avec rabattement ❌.
@@ -86,16 +87,16 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 ### 4:40 · Et si c'est vous qui vous êtes trompé de voie ?
 
-> **VOIX :** Ça arrive à tout le monde, surtout dans un carrefour qu'on ne connaît pas. La bonne réaction : suivre la flèche de sa voie et faire le détour. Un giratoire plus loin, deux minutes de perdues. C'est moins cher qu'une amende… et que la carrosserie.
+> **VOIX :** Ça arrive à tout le monde, surtout dans un carrefour qu'on ne connaît pas. Tant que la ligne entre les voies est discontinue, vous pouvez encore rejoindre la bonne voie : là où vous êtes, sans remonter la file et sans mettre personne en danger. Une fois la ligne continue, c'est fini : vous suivez la flèche de votre voie et vous faites le détour. Un giratoire plus loin, deux minutes de perdues. C'est moins cher qu'une amende… et que la carrosserie.
 > Et la prochaine fois, on se met en présélection à temps : les panneaux avant le carrefour sont là pour ça, et la plupart des GPS indiquent la bonne voie.
 
-**TEXTE :** Art. 13 al. 1 OCR
+**TEXTE :** ATF 104 IV 110 · art. 13 al. 1 OCR
 
 ### 5:10 · Ça coûte quoi ?
 
-> **VOIX :** Pour la manœuvre elle-même : une amende. Et si quelqu'un doit piler, ou que ça finit en accrochage, on passe dans les infractions qui peuvent coûter le permis.
+> **VOIX :** Changer de voie pour dépasser sur un tronçon de présélection : 100 francs d'amende d'ordre. Ne pas suivre la flèche de sa voie : 100 francs aussi. Mais si la manœuvre met quelqu'un en danger, blesse quelqu'un ou cause un dégât, on sort de l'amende d'ordre : c'est une dénonciation, et le permis peut être en jeu.
 
-**TEXTE :** Art. 90 LCR · art. 16a à 16c LCR *(montant exact à vérifier, voir la liste plus bas)*
+**TEXTE :** OAO, annexe 1 (art. 13 al. 3 OCR ; art. 74 al. 2 OSR) · art. 4 LAO · art. 16a à 16c LCR
 
 ### 5:25 · Conclusion
 
@@ -108,9 +109,9 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 > Ils vont à Crissier… jusqu'à vingt mètres du feu. Puis ils se rabattent devant vous. C'est légal ? Non.
 > **Un :** rouler plus vite dans la voie d'à côté, c'est permis. Ça s'appelle devancer.
-> **Deux :** se rabattre devant la file, c'est dépasser. Et sur un tronçon de présélection, changer de voie pour dépasser est interdit. Article 13, alinéa 3 de l'OCR.
+> **Deux :** se rabattre devant la file, c'est dépasser. Et sur un tronçon de présélection, changer de voie pour dépasser est interdit. Article 13, alinéa 3 de l'OCR : 100 francs.
 > **Trois :** « Et la fermeture éclair ? » Elle ne s'applique que quand une voie se termine. Ici, chaque voie va quelque part.
-> **Quatre :** vous n'êtes pas obligé de les laisser entrer. Mais pas de justice privée : la loi vous demande d'être prudent face à quelqu'un qui conduit mal.
+> **Quatre :** vous n'êtes pas obligé de les laisser entrer. Mais pas de justice privée : la loi vous demande d'être prudent face à quelqu'un qui se comporte mal.
 > Trompé de voie ? Suivez votre flèche et faites le détour.
 > Et vous, vous les laissez passer ?
 
@@ -120,26 +121,29 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 - **Schéma animé vu du dessus** : trois voies, flèches au sol, ligne discontinue puis continue avant le feu. C'est lui qui fera comprendre la différence entre devancer et dépasser.
 - **Plans embarqués** : utilisez une caméra fixée ou un passager, jamais le téléphone en main au volant, même dans un bouchon. Pour une chaîne sur les règles de circulation, ce serait le mauvais exemple.
-- **Références à l'écran** : afficher l'article à chaque règle citée renforce la crédibilité.
+- **Références à l'écran** : afficher l'article ou l'arrêt à chaque règle citée renforce la crédibilité. Uniquement des sources officielles : lois et ordonnances, arrêts du Tribunal fédéral.
 
-## À vérifier sur Fedlex avant de tourner
+## À vérifier avant de tourner
 
-Fedlex n'était pas accessible depuis l'environnement où ce script a été préparé. Les textes ont été recoupés via juriup.ch, le TCS, l'OFROU et des arrêts du Tribunal fédéral. Avant de citer mot pour mot, contrôlez sur fedlex.admin.ch :
+Fedlex n'a pas pu être ouvert directement depuis l'environnement où ce script a été préparé. Les articles ont été vérifiés sur des extraits des textes officiels publiés sur Fedlex et des arrêts publiés par le Tribunal fédéral. Avant de citer mot pour mot, relisez la version en vigueur sur fedlex.admin.ch :
 
-- [ ] **Art. 13 al. 3 OCR** (RS 741.11) : formulation exacte, et exception « mêmes destinations ». Les sources secondaires concordent sur la première phrase, mais l'exception n'apparaissait que tronquée.
-- [ ] **Art. 74 al. 2 OSR** (RS 741.21) : formulation exacte sur les flèches de présélection.
-- [ ] **Ligne continue entre deux voies de même sens** (OSR, art. 73) : article et alinéa exacts si vous voulez les citer.
-- [ ] **Art. 44 al. 1 et art. 34 al. 3 LCR** (RS 741.01) : formulation exacte, si vous citez mot pour mot.
-- [ ] **OAO, annexe 1** (RS 314.11) : existe-t-il une amende d'ordre fixe pour ce comportement, ou est-ce une dénonciation ? Aucun montant n'a pu être confirmé, d'où la formulation prudente du passage « Ça coûte quoi ? ».
+- [ ] **Art. 13 al. 3 OCR** : formulation confirmée jusqu'à la version du 1er octobre 2026. Relire avant de citer.
+- [ ] **100 francs pour l'art. 13 al. 3 OCR** : montant confirmé dans les versions 2020 et 2023 de l'OAO. Vérifier dans la version en vigueur (état au 1er août 2026). Le montant de 100 francs pour la flèche (art. 74 al. 2 OSR) est confirmé dans cette version.
+- [ ] **Art. 8 al. 3 OCR** (devancer par la droite en localité) : formulation exacte.
+- [ ] **Ligne continue entre deux voies de même sens** (OSR, art. 73) : article et alinéa exacts, si vous voulez les citer.
+- [ ] **Art. 26 al. 2 LCR** : relire la formulation exacte.
 
-## Sources consultées
+## Sources officielles
 
-- OCR, art. 13 (présélection) : <https://juriup.ch/lois/ocr/art-13/>
-- OCR, art. 8 (voies, fermeture éclair) : <https://juriup.ch/lois/ocr/art-8/>
-- OSR, art. 74 (flèches de présélection) : <https://juriup.ch/lois/osr/art-74/>
-- TCS, devancer ou dépasser par la droite : <https://www.tcs.ch/fr/tests-conseils/conseils/regles-de-circulation/depassement-par-la-droite.php>
-- OFROU, commentaires de la révision OCR/OSR/OAO 2020 : <https://www.astra.admin.ch/dam/astra/fr/dokumente/abteilung_strassenverkehrallgemein/verkehrsregeln/vrv-2020/erlaeuterungen-br.pdf.download.pdf/Commentaires%20(OCR,%20OSR,%20OAO,%20ORN).pdf>
-- OFROU, règles de comportement (fermeture éclair) : <https://www.astra.admin.ch/astra/fr/home/themen/nationalstrassen/baustellen/wissenswertes/knigge/verhaltensregeln.html>
-- ATF 104 IV 110 (portée des flèches de présélection) : <https://app.omnilex.ai/de/sources/court-decision/ch-bge--104-iv-110/bge-104-iv-110>
-- ATF 91 IV 16 (changement de voie, art. 44 al. 1 LCR) : <https://app.omnilex.ai/de/sources/court-decision/ch-bge--91-iv-16/bge-91-iv-16>
-- law.ch, devancer ou dépasser par la droite et retrait de permis : <https://law.ch/lawnews/2023/04/rechtsvorbeifahren-vs-rechtsueberholen-letzteres-muss-nicht-fuehrerausweisentzug-zur-folge-haben/>
+**Lois et ordonnances (Fedlex)**
+
+- LCR, RS 741.01 (art. 16a à 16c, 26, 34, 44) : <https://www.fedlex.admin.ch/eli/cc/1959/679_705_685/fr>
+- OCR, RS 741.11 (art. 8, 13) : <https://www.fedlex.admin.ch/eli/cc/1962/1364_1409_1420/fr>
+- OSR, RS 741.21 (art. 73, 74) : <https://www.fedlex.admin.ch/eli/cc/1979/1961_1961_1961/fr>
+- LAO, RS 314.1 (art. 4) : <https://www.fedlex.admin.ch/eli/cc/2017/725/fr>
+- OAO, RS 314.11 (annexe 1) : <https://www.fedlex.admin.ch/eli/cc/2019/93/fr>
+
+**Arrêts du Tribunal fédéral**
+
+- ATF 104 IV 110 (flèches de présélection obligatoires) : <https://www.bger.ch/ext/eurospider/live/de/php/clir/http/index.php?highlight_docid=atf%3A%2F%2F104-IV-110%3Ade&lang=de&type=show_document>
+- ATF 142 IV 93 (devancer ou dépasser par la droite) : <http://relevancy.bger.ch/php/clir/http/index.php?highlight_docid=atf://142-IV-93:fr:regeste&lang=fr&type=show_document&zoom=YES>
