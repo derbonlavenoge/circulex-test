@@ -96,7 +96,7 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 > **VOIX :** Changer de voie pour dépasser sur un tronçon de présélection : 100 francs d'amende d'ordre. Ne pas suivre la flèche de sa voie : 100 francs aussi. Mais si la manœuvre met quelqu'un en danger, blesse quelqu'un ou cause un dégât, on sort de l'amende d'ordre : c'est une dénonciation, et le permis peut être en jeu.
 
-**TEXTE :** OAO, annexe 1 (art. 13 al. 3 OCR ; art. 74 al. 2 OSR) · art. 4 LAO · art. 16a à 16c LCR
+**TEXTE :** OAO, annexe 1, ch. 315 (art. 13 al. 3 OCR) et ch. 306 (art. 74 al. 2 OSR) · art. 4 LAO · art. 16a à 16c LCR
 
 ### 5:25 · Conclusion
 
@@ -125,12 +125,12 @@ Rouler plus vite dans la voie d'à côté, c'est permis. **Se rabattre devant la
 
 ## À vérifier avant de tourner
 
-Fedlex n'a pas pu être ouvert directement depuis l'environnement où ce script a été préparé. Les articles ont été vérifiés sur des extraits des textes officiels publiés sur Fedlex et des arrêts publiés par le Tribunal fédéral. Avant de citer mot pour mot, relisez la version en vigueur sur fedlex.admin.ch :
+Les montants ont été vérifiés directement dans le texte officiel de l'OAO en vigueur (état le 1er août 2026). Les autres articles ont été vérifiés sur des extraits des textes officiels publiés sur Fedlex et des arrêts publiés par le Tribunal fédéral. Avant de citer mot pour mot, relisez la version en vigueur sur fedlex.admin.ch :
 
 - [ ] **Art. 13 al. 3 OCR** : formulation confirmée jusqu'à la version du 1er octobre 2026. Relire avant de citer.
-- [ ] **100 francs pour l'art. 13 al. 3 OCR** : montant confirmé dans les versions 2020 et 2023 de l'OAO. Vérifier dans la version en vigueur (état au 1er août 2026). Le montant de 100 francs pour la flèche (art. 74 al. 2 OSR) est confirmé dans cette version.
+- [x] **Montants (OAO, annexe 1, état le 1er août 2026)** : changer de voie sur un tronçon de présélection pour dépasser, 100 francs (ch. 315). Ne pas observer la flèche de présélection, 100 francs (ch. 306.1). Ne pas observer la fermeture éclair, 100 francs (ch. 306.4).
 - [ ] **Art. 8 al. 3 OCR** (devancer par la droite en localité) : formulation exacte.
-- [ ] **Ligne continue entre deux voies de même sens** (OSR, art. 73) : article et alinéa exacts, si vous voulez les citer.
+- [x] **Ligne continue entre deux voies de même sens** : c'est une ligne de sécurité (6.01), art. 73 al. 6 let. a OSR, selon la référence donnée par l'OAO (ch. 306.3).
 - [ ] **Art. 26 al. 2 LCR** : relire la formulation exacte.
 
 ## Sources officielles
@@ -141,7 +141,7 @@ Fedlex n'a pas pu être ouvert directement depuis l'environnement où ce script 
 - OCR, RS 741.11 (art. 8, 13) : <https://www.fedlex.admin.ch/eli/cc/1962/1364_1409_1420/fr>
 - OSR, RS 741.21 (art. 73, 74) : <https://www.fedlex.admin.ch/eli/cc/1979/1961_1961_1961/fr>
 - LAO, RS 314.1 (art. 4) : <https://www.fedlex.admin.ch/eli/cc/2017/725/fr>
-- OAO, RS 314.11 (annexe 1) : <https://www.fedlex.admin.ch/eli/cc/2019/93/fr>
+- OAO, RS 314.11 (annexe 1, ch. 306 et 315 ; état le 1er août 2026) : <https://www.fedlex.admin.ch/eli/cc/2019/93/fr>
 
 **Arrêts du Tribunal fédéral**
 
