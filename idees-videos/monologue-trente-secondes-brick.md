@@ -70,3 +70,9 @@ Au supermarché, presque personne ne double la file : tout le monde se voit, et 
 - **Le supermarché** : file à la caisse, quelqu'un qui pose ses courses sur le tapis devant les autres, regards qui se tournent.
 - **Retour en voiture** : feux arrière qui s'éloignent, feu qui passe au vert.
 - **Son** : deux boucles générées dans le même projet ElevenLabs que la voix. « Pluie sur la voiture » (15 s) et « Essuie-glaces lents » (10 s), quatre variations chacune, à répéter sous la voix au montage.
+
+## Mixage
+
+- **Fichier :** `trente-secondes-mix.mp3`, 2 min 04, MP3 320 kbit/s (envoyé dans la conversation).
+- **Éléments :** voix Brick prise 1, pluie variation 1, essuie-glaces variation 1.
+- **Réglages :** 2 s d'ambiance seule avant la voix et 4 s après. Pluie 12 dB et essuie-glaces 16 dB sous la voix, avec atténuation automatique : l'ambiance baisse quand la voix parle et remonte dans les silences. Fondus d'entrée et de sortie. Niveau final −16 LUFS, crête −1,7 dBFS.
