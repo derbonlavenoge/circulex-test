@@ -69,4 +69,4 @@ Au supermarché, presque personne ne double la file : tout le monde se voit, et 
 - **La tension** : mains serrées sur le volant, essuie-glaces en vitesse rapide.
 - **Le supermarché** : file à la caisse, quelqu'un qui pose ses courses sur le tapis devant les autres, regards qui se tournent.
 - **Retour en voiture** : feux arrière qui s'éloignent, feu qui passe au vert.
-- **Son** : ambiance de pluie et battement des essuie-glaces en fond, à ajouter au montage.
+- **Son** : deux boucles générées dans le même projet ElevenLabs que la voix. « Pluie sur la voiture » (15 s) et « Essuie-glaces lents » (10 s), quatre variations chacune, à répéter sous la voix au montage.
