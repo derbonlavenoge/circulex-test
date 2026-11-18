@@ -80,7 +80,7 @@ Au supermarché, presque personne ne double la file : tout le monde se voit, et 
 ## Vidéo
 
 - **Fichier :** `trente-secondes.mp4`, 2 min 04, 16:9 en 1080p à 30 images/s, sous-titres incrustés (envoyé dans la conversation).
-- **Images :** 12 images générées par IA (ElevenLabs, GPT Image 2.5, 4 variantes par plan, 9 120 crédits), animées par des mouvements de caméra lents.
+- **Images :** 12 images générées par IA (ElevenLabs, GPT Image 2.5, 4 variantes par plan, 9 120 crédits), animées par des mouvements de caméra lents. Version 2 : plans A, D, E et H refaits avec un décor suisse (Léman, Alpes, banlieue lausannoise), 3 040 crédits.
 - **Montage :** fondus enchaînés calés sur la narration, coupe sèche sur « Rouge. », fondu au noir pour entrer dans la scène du supermarché et en sortir, fondu au noir final.
 - **Sous-titres :** calés au mot près sur la voix, grâce à une transcription horodatée.
 - **Fichiers de travail :** les scripts de mixage, de sous-titres et de montage sont dans `outils/`. Le minutage, les identifiants ElevenLabs des images retenues et les sous-titres (`.ass` et `.srt`) sont dans `outils/trente-secondes/`.
